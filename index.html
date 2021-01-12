@@ -50,7 +50,22 @@
                         </div>
                     </nav>
 
-                    <nav class="header-navbar-bottom"></nav>
+                    <nav class="header-navbar-bottom">
+                        <div class="logo-container">
+                            <img src="img/classic_shop_logo1x.png" alt="Logo AVADA" class="img100">
+                        </div>
+                        <div class="menu-container">
+                            <ul class="list-inline">
+                                <li v-for="link in navabarLinks">
+                                    <a href="#">
+                                        {{ link.name }}
+                                        <i v-if="link.dropdown" class="fas fa-chevron-down"></i>
+                                        <!-- da gestire la classe active -->
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
                 </div>
                 <!-- /navbars -->
 

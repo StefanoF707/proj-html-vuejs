@@ -28,6 +28,10 @@ i.fa-chevron-down {
   margin-left: 6px;
 }
 
+.img100 {
+  width: 100%;
+}
+
 .header-top .header-navbar-top {
   display: flex;
   justify-content: space-between;
@@ -70,14 +74,18 @@ i.fa-chevron-down {
 }
 .header-top .header-navbar-top .user-options ul li {
   height: 100%;
-  line-height: 50px;
-  border-right: 1px solid #00000020;
-  font-size: 12px;
 }
 .header-top .header-navbar-top .user-options ul li a {
   display: inline-block;
   width: 100%;
   height: 100%;
+}
+.header-top .header-navbar-top .user-options ul li {
+  line-height: 50px;
+  border-right: 1px solid #00000020;
+  font-size: 12px;
+}
+.header-top .header-navbar-top .user-options ul li a {
   padding: 0 20px;
 }
 .header-top .header-navbar-top .user-options ul li:last-child {
@@ -98,4 +106,56 @@ i.fa-chevron-down {
   font-family: "FontAwesome";
   margin-left: 10px;
   font-size: 13px;
+}
+.header-top .header-navbar-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  padding: 0 90px;
+  border: 1px solid #000;
+}
+.header-top .header-navbar-bottom .logo-container {
+  max-width: 200px;
+}
+.header-top .header-navbar-bottom .menu-container {
+  height: 100%;
+  height: 100%;
+}
+.header-top .header-navbar-bottom .menu-container li {
+  height: 100%;
+}
+.header-top .header-navbar-bottom .menu-container li a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.header-top .header-navbar-bottom .menu-container li {
+  font-size: 12px;
+  line-height: 100px;
+  margin-right: 30px;
+}
+.header-top .header-navbar-bottom .menu-container li.active {
+  position: relative;
+  color: #427ed5;
+}
+.header-top .header-navbar-bottom .menu-container li.active::before {
+  content: "";
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 3px solid #427ed5;
+}
+.header-top .header-navbar-bottom .menu-container li:hover {
+  position: relative;
+  color: #427ed5;
+}
+.header-top .header-navbar-bottom .menu-container li:hover::before {
+  content: "";
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 3px solid #427ed5;
 }

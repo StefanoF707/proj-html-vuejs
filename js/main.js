@@ -20,6 +20,32 @@ let app = new Vue (
                     iconClass: 'fab fa-youtube'
                 },
             ],
+            navabarLinks: [
+                {
+                    name: "Home",
+                    dropdown: true,
+                },
+                {
+                    name: "Shop",
+                    dropdown: true,
+                },
+                {
+                    name: "Products",
+                    dropdown: true,
+                },
+                {
+                    name: "Categories",
+                    dropdown: true,
+                },
+                {
+                    name: "News",
+                    dropdown: false,
+                },
+                {
+                    name: "Elements",
+                    dropdown: true,
+                },
+            ],
         },
         methods: {
 

@@ -1,4 +1,5 @@
 .header-top {
+
     .header-navbar-top {
         @include horizontalFlex;
         height: $navbarTopHeight;
@@ -36,13 +37,15 @@
         .user-options {
             height: 100%;
             ul {
-                height: 100%;
+                @include menuLists;
                 font-size: 0;
                 li {
-                    @include menuLists;
                     line-height: $navbarTopHeight;
                     border-right: 1px solid $bordersColor;
                     font-size: 12px;
+                    a {
+                        padding: 0 20px;
+                    }
                     &:last-child {
                         background: #FAFAFA;
                         color: #000;
@@ -66,4 +69,30 @@
             }
         }
     }
+
+    .header-navbar-bottom {
+        @include horizontalFlex;
+        height: $navbarBottomHeight;
+        padding: 0 $horizontalPadding;
+        border: 1px solid #000;
+        .logo-container {
+            max-width: 200px;
+        }
+        .menu-container {
+            height: 100%;
+            @include menuLists;
+            li {
+                font-size: 12px;
+                line-height: $navbarBottomHeight;
+                margin-right: 30px;
+                &.active {
+                    @include activeMenuProp
+                }
+                &:hover {
+                    @include activeMenuProp;
+                }
+            }
+        }
+    }
+
 }

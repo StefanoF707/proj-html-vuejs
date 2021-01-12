@@ -6,10 +6,25 @@
 
 @mixin menuLists {
     height: 100%;
-    a {
-        display: inline-block;
-        width: 100%;
+    li {
         height: 100%;
-        padding: 0 20px;
+        a {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+@mixin activeMenuProp {
+    position: relative;
+    color: $brandColor;
+    &::before {
+        content: "";
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-top: 3px solid $brandColor;
     }
 }
