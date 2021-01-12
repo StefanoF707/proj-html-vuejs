@@ -23,11 +23,31 @@
                     <nav class="header-navbar-top">
                         <!-- gestire con v-for -->
                         <div class="socials">
-                            <a href="#" v-for="social in socials"><i :class="social.iconClass"></i></a>
+                            <ul class="list-inline">
+                                <li v-for="social in socials">
+                                    <a href="#"><i :class="social.iconClass"></i></a>
+                                    <span>{{ social.name }}</span>
+                                </li>
+                            </ul>
                         </div>
                         <!-- /gestire con v-for -->
 
-                        <div class="user-options"></div>
+                        <div class="user-options">
+                            <ul class="list-inline">
+                                <li><a href="#">Shopping Cart</a></li>
+                                <li>
+                                    <a href="#">
+                                        My Account
+                                        <i class="fas fa-chevron-down"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        CART
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </nav>
 
                     <nav class="header-navbar-bottom"></nav>

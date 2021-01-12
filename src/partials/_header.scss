@@ -1,18 +1,67 @@
 .header-top {
     .header-navbar-top {
         @include horizontalFlex;
-        height: 50px;
+        height: $navbarTopHeight;
         box-sizing: content-box;
+        padding: 0 $horizontalPadding;
         border-top: 3px solid $brandColor;
         border-bottom: 1px solid $bordersColor;
-        padding: 0 $horizontalPadding;
 
         .socials {
-            font-size: 16px;
-            a {
+            li {
+                position: relative;
                 margin-right: 20px;
+                span {
+                    position: absolute;
+                    top: 150%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    font-size: 10px;
+                    padding: 4px;
+                    background: $mainColorDark;
+                    color: #fff;
+                    border-radius: 5px;
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                }
                 &:hover {
                     color: lighten($textColor, 20%);
+                }
+                &:hover span {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .user-options {
+            height: 100%;
+            ul {
+                height: 100%;
+                font-size: 0;
+                li {
+                    @include menuLists;
+                    line-height: $navbarTopHeight;
+                    border-right: 1px solid $bordersColor;
+                    font-size: 12px;
+                    &:last-child {
+                        background: #FAFAFA;
+                        color: #000;
+                        border-right: 0;
+                        a {
+                            padding: 0 70px;
+                            &::before {
+                                content: "\f07a";
+                                font-family: $fontAwesome;
+                                margin-right: 10px;
+                            }
+                            &::after {
+                                content: "\f078";
+                                font-family: $fontAwesome;
+                                margin-left: 10px;
+                                font-size: 13px;
+                            }
+                        }
+                    }
                 }
             }
         }
