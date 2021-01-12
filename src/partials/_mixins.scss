@@ -28,3 +28,14 @@
         border-top: 3px solid $brandColor;
     }
 }
+
+@mixin btnFunction($color, $percentage) {
+    padding: 13px 20px;
+    border-radius: 50px;
+    color: #fff;
+    background: $color;
+    transition: background 0.3s;
+    &:hover {
+        background: lighten($color, $percentage);
+    }
+}

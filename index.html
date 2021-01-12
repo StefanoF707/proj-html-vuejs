@@ -56,11 +56,19 @@
                         </div>
                         <div class="menu-container">
                             <ul class="list-inline">
-                                <li v-for="link in navabarLinks">
+                                <li class="links" v-for="link in navabarLinks">
                                     <a href="#">
                                         {{ link.name }}
                                         <i v-if="link.dropdown" class="fas fa-chevron-down"></i>
                                         <!-- da gestire la classe active -->
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="btn">SHOP NOW!</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fas fa-search"></i>
                                     </a>
                                 </li>
                             </ul>

@@ -74,14 +74,13 @@
         @include horizontalFlex;
         height: $navbarBottomHeight;
         padding: 0 $horizontalPadding;
-        border: 1px solid #000;
         .logo-container {
             max-width: 200px;
         }
         .menu-container {
             height: 100%;
             @include menuLists;
-            li {
+            li.links {
                 font-size: 12px;
                 line-height: $navbarBottomHeight;
                 margin-right: 30px;
@@ -90,6 +89,17 @@
                 }
                 &:hover {
                     @include activeMenuProp;
+                }
+            }
+            li {
+                margin-right: 30px;
+                .btn {
+                    @include btnFunction($brandColor, 7%);
+                    font-size: 12px;
+                    font-weight: 700;
+                }
+                .fa-search {
+                    font-size: 14px;
                 }
             }
         }
