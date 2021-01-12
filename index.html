@@ -19,7 +19,17 @@
 
                 <!-- navbars -->
                 <div class="header-top">
-                    <nav class="header-navbar-top"></nav>
+
+                    <nav class="header-navbar-top">
+                        <!-- gestire con v-for -->
+                        <div class="socials">
+                            <a href="#" v-for="social in socials"><i :class="social.iconClass"></i></a>
+                        </div>
+                        <!-- /gestire con v-for -->
+
+                        <div class="user-options"></div>
+                    </nav>
+
                     <nav class="header-navbar-bottom"></nav>
                 </div>
                 <!-- /navbars -->
@@ -72,9 +82,6 @@
 
             </footer>
             <!-- /newsletter, info e credits -->
-
-
-
 
         </div>
 
