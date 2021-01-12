@@ -106,3 +106,32 @@
     }
 
 }
+
+#jumbotron {
+    @include verticalFlex;
+    justify-content: center;
+    height: 90vh;
+    background-image: url("../img/jumbotron.jpg");
+    @include backgroundImgDefault;
+    color: #fff;
+    text-align: center;
+    @include backgroundLayover;
+}
+
+.jumbotron-top {
+    h1 {
+        font-size: 5em;
+    }
+    p {
+        font-size: 1.7em;
+        text-transform: uppercase;
+    }
+}
+
+.jumbotron-bottom {
+    margin-top: 40px;
+    .btn {
+        @include mainBtn;
+        margin: 0 10px;
+    }
+}
