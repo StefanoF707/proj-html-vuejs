@@ -9,7 +9,7 @@ body {
     color: $mainColorDark;
 }
 
-.title {
+.section-title {
     font-size: 2.5em;
     &::before {
         @include separators;
@@ -20,9 +20,13 @@ body {
         margin-left: 25px;
     }
 }
-.subtitle {
+.section-subtitle {
     font-size: 1em;
     margin-top: 20px;
+}
+
+.item-title {
+    font-size: 2.2em;
 }
 
 a {

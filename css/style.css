@@ -10,10 +10,10 @@ body {
   color: #2a2f33;
 }
 
-.title {
+.section-title {
   font-size: 2.5em;
 }
-.title::before {
+.section-title::before {
   content: "";
   display: inline-block;
   width: calc(50% / 2);
@@ -22,7 +22,7 @@ body {
   vertical-align: middle;
   margin-right: 25px;
 }
-.title::after {
+.section-title::after {
   content: "";
   display: inline-block;
   width: calc(50% / 2);
@@ -32,9 +32,13 @@ body {
   margin-left: 25px;
 }
 
-.subtitle {
+.section-subtitle {
   font-size: 1em;
   margin-top: 20px;
+}
+
+.item-title {
+  font-size: 2.2em;
 }
 
 a {
@@ -62,8 +66,8 @@ i.fa-chevron-down {
 .header-top .header-navbar-top {
   background: #fff;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   height: 50px;
   box-sizing: content-box;
   padding: 0 90px;
@@ -137,8 +141,8 @@ i.fa-chevron-down {
 }
 .header-top .header-navbar-bottom {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   height: 100px;
   padding: 0 90px;
 }
@@ -298,11 +302,11 @@ main {
 }
 #featured .featured-bottom {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 #featured .featured-bottom .featured-item {
-  width: 25%;
+  margin: 0 5px;
+  width: calc(25% - 10px);
 }
 #featured .featured-bottom .featured-item .featured-item-preview {
   position: relative;
@@ -369,7 +373,6 @@ main {
 
 #collections {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 #collections .collections-item {
@@ -394,9 +397,6 @@ main {
 }
 #collections .collections-item * {
   z-index: 1;
-}
-#collections .collections-item h2 {
-  font-size: 2.2em;
 }
 #collections .collections-item p {
   font-size: 1.2em;
@@ -437,5 +437,65 @@ main {
 }
 
 #best-seller {
+  padding: 100px 90px;
+}
+
+#promotions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background: url("../img/confetti-compressor.jpg");
+}
+#promotions .promotions-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items: flex-start;
+  justify-content: center;
+  width: 35%;
+  height: 350px;
+  margin: 0 20px;
+  padding: 0 30px;
+  text-align: left;
+  color: #fff;
+}
+#promotions .promotions-item:first-child {
+  background: url("../img/promotions/promo_box_1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#promotions .promotions-item:last-child {
+  background: url("../img/promotions/promo_box_2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#promotions .promotions-item p {
+  margin: 20px 0;
+  font-size: 13px;
+  font-weight: 500;
+  max-width: 60%;
+}
+#promotions .promotions-item .btn {
+  padding: 15px 30px;
+  border-radius: 50px;
+  color: #fff;
+  background: #ffffff30;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: 2px solid #fff;
+  transition: background 0.3s;
+  font-size: 12px;
+}
+#promotions .promotions-item .btn:hover {
+  background: #ffffff00;
+}
+
+#new-arrivals {
   padding: 100px 90px;
 }

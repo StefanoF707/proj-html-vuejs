@@ -30,7 +30,8 @@ main {
     .featured-bottom {
         @include horizontalFlex;
         .featured-item {
-            width: 25%;
+            margin: 0 5px;
+            width: calc(25% - 10px);
             .featured-item-preview {
                 position: relative;
                 overflow: hidden;
@@ -95,9 +96,6 @@ main {
         color: #fff;
         padding-bottom: $verticalPadding / 2;
         @include backgroundLayover;
-        h2 {
-            font-size: 2.2em;
-        }
         p {
             font-size: 1.2em;
             text-transform: uppercase;
@@ -125,4 +123,45 @@ main {
 #best-seller {
     padding: $verticalPadding $horizontalPadding;
 
+}
+
+#promotions {
+    @include horizontalFlex;
+    justify-content: center;
+    padding: $verticalPadding 0;
+    @include backgroundImgDefault;
+    background: url("../img/confetti-compressor.jpg");
+    .promotions-item {
+        @include verticalFlex;
+        align-items: flex-start;
+        justify-content: center;
+        width: 35%;
+        height: 350px;
+        margin: 0 20px;
+        padding: 0 30px;
+        text-align: left;
+        color: #fff;
+        &:first-child {
+            background: url("../img/promotions/promo_box_1.jpg");
+            @include backgroundImgDefault;
+        }
+        &:last-child {
+            background: url("../img/promotions/promo_box_2.jpg");
+            @include backgroundImgDefault;
+        }
+        p {
+            margin: 20px 0;
+            font-size: 13px;
+            font-weight: 500;
+            max-width: 60%;
+        }
+        .btn {
+            @include mainBtn;
+            font-size: 12px;
+        }
+    }
+}
+
+#new-arrivals {
+    padding: $verticalPadding $horizontalPadding;
 }

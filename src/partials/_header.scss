@@ -3,6 +3,7 @@
     .header-navbar-top {
         background: #fff;
         @include horizontalFlex;
+        justify-content: space-between;
         height: $navbarTopHeight;
         box-sizing: content-box;
         padding: 0 $horizontalPadding;
@@ -73,6 +74,7 @@
 
     .header-navbar-bottom {
         @include horizontalFlex;
+        justify-content: space-between;
         height: $navbarBottomHeight;
         padding: 0 $horizontalPadding;
         .logo-container {
