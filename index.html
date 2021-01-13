@@ -111,7 +111,7 @@
 
                         <div v-for="feature in filterGender" class="featured-item">
                             <div class="featured-item-preview">
-                                <img :src="'img/products/' + feature.preview + '-400x520.jpg'" alt="Giacca" class="img100">
+                                <img :src="'img/products/' + feature.preview + '-400x520.jpg'" :alt="feature.name" class="img100">
                                 <div class="card-layover">
                                     <a href="#">
                                         <i class="fas fa-shopping-cart"></i>
@@ -185,7 +185,21 @@
                     <p class="section-subtitle">Brand new products from top designers</p>
                 </section>
 
-                <section id="about-us"></section>
+                <section id="testimonals">
+                    <div class="testimonials-item">
+                        <img :src=" 'img/testimonials/' + testimonials[indexTestimonials].avatar + '.png'" :alt="'avatar ' + testimonials[indexTestimonials].name">
+
+                        <p>{{ testimonials[indexTestimonials].feedback }}</p>
+
+                        <span class="testimonial-name"><strong>{{ testimonials[indexTestimonials].name }},</strong> Theme Fusion</span>
+
+                        <nav>
+                            <i v-for="(review, index) in testimonials" :class="(index == indexTestimonials) ? 'fas' : 'far'" class="fa-circle" @click="manageTestimonials(index)"></i>
+                        </nav>
+                    </div>
+
+                    <!-- Da gestire setInterval -->
+                </section>
 
                 <section id="our-blog"></section>
 
@@ -201,7 +215,7 @@
 
                 <section id="newsletter"></section>
 
-                <section id="info"></section>
+                <section id="about-us"></section>
 
                 <section id="credits"></section>
 

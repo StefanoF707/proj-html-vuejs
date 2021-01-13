@@ -131,6 +131,7 @@ main {
     padding: $verticalPadding 0;
     @include backgroundImgDefault;
     background: url("../img/confetti-compressor.jpg");
+
     .promotions-item {
         @include verticalFlex;
         align-items: flex-start;
@@ -164,4 +165,25 @@ main {
 
 #new-arrivals {
     padding: $verticalPadding $horizontalPadding;
+}
+
+#testimonals {
+    padding: $verticalPadding ($horizontalPadding * 2);
+    background: url("../img/testimonials/testimonials_home.jpg");
+    @include backgroundImgDefault;
+    color: #fff;
+    .testimonials-item {
+        p {
+            margin: 30px 0;
+            line-height: 30px;
+            font-weight: 500;
+        }
+        nav {
+            margin-top: 30px;
+            i {
+                margin: 0 5px;
+                cursor: pointer;
+            }
+        }
+    }
 }

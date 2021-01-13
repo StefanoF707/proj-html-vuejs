@@ -159,12 +159,29 @@ let app = new Vue (
             ],
             genders: ["Men", "Women", "Accessories"],
             collections: ["Winter", "Spring", "Autumn"],
+            testimonials: [
+                {
+                    name: "Dario Pineda",
+                    avatar: "man_testimonial",
+                    feedback: "Curabitur non tristique tortor. Vestibulum aliquet suscipit ipsum in volutpat. Donec vel lacinia sem, vitae semper nulla. In hac habitasse platea dictumst. Mauris consectetur est et nibh sadip hendrerit bibendum.",
+                },
+                {
+                    name: "Lisa Smith",
+                    avatar: "woman_testimonial",
+                    feedback: "Proin blandit metus vel magna dignissim varius. Morbi enim lorem, sollicitudin vitae ante nec, rutrum venenatis neque. In mi augue, iaculis nec dui ac, condimentum consequat velit. Ut et metus justo.",
+                },
+            ],
             indexFeatured: 0,
+            indexTestimonials: 0,
         },
         methods: {
             manageFeatured: function (i) {
                 this.indexFeatured = i;
                 this.getFeatured(this.indexFeatured);
+            },
+
+            manageTestimonials: function (i) {
+                this.indexTestimonials = i;
             },
 
             getFeatured: function(i) {
