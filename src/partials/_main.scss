@@ -1,0 +1,47 @@
+main {
+    text-align: center;
+}
+
+#featured {
+    padding: $verticalPadding $horizontalPadding;
+    .featured-top {
+        margin: 65px 0;
+        text-align: center;
+        font-size: 0;
+        .featured-btn {
+            font-size: 14px;
+            padding: 15px 45px;
+            border: 1px solid $bordersColor;
+            font-weight: 700;
+            background: #F6F6F6;
+            transition: background $transitionsTime;
+            &.active {
+                background: #fff;
+            }
+            &:hover {
+                background: #fff;
+            }
+        }
+    }
+
+    .featured-bottom {
+        @include horizontalFlex;
+        .featured-item {
+            width: calc(100% / 4);
+            .featured-item-preview {
+                position: relative;
+                overflow: hidden;
+                .card-layover {
+                    @include cardsLayover;
+                    font-size: 10px;
+                    a {
+                        margin: 5px 0;
+                    }
+                }
+                &:hover .card-layover {
+                    top: 0;
+                }
+            }
+        }
+    }
+}
