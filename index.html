@@ -103,15 +103,13 @@
 
                     <nav class="featured-top">
                         <!-- gestire con vue -->
-                        <a href="" class="featured-btn active">Men</a>
-                        <a href="" class="featured-btn">Women</a>
-                        <a href="" class="featured-btn">Accessories</a>
+                        <span v-for="(gender, index) in genders" class="featured-btn" :class="(index == indexFeatured) ? 'active-gender' : ''" @click="manageFeatured(index)">{{ gender }}</span>
                         <!-- /gestire con vue -->
                     </nav>
 
                     <div class="featured-bottom">
 
-                        <div v-for="feature in products" v-if="feature.categories.includes('Men')" class="featured-item">
+                        <div v-for="feature in filterGender" class="featured-item">
                             <div class="featured-item-preview">
                                 <img :src="'img/products/' + feature.preview + '-400x520.jpg'" alt="Giacca" class="img100">
                                 <div class="card-layover">
@@ -126,10 +124,16 @@
                                 </div>
                             </div>
                             <div class="featured-item-info">
-                                <h4>ciaociaociaoc</h4>
+                                <h4><a href="#">{{ feature.name }}</a></h4>
+                                <div class="categories">
+                                    <span  v-for="category in feature.categories" class="category">{{ category }}</span>
+                                </div>
+                                <div class="prices">
+                                    <span class="original-price" v-if="feature.originalPrice != feature.price" class="original-price">${{ feature.originalPrice }}</span>
+                                    <span class="price">${{ feature.price }}</span>
+                                </div>
                             </div>
                         </div>
-
 
                     </div>
                 </section>

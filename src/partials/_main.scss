@@ -4,10 +4,12 @@ main {
 
 #featured {
     padding: $verticalPadding $horizontalPadding;
+
     .featured-top {
         margin: 65px 0;
         text-align: center;
         font-size: 0;
+
         .featured-btn {
             font-size: 14px;
             padding: 15px 45px;
@@ -15,7 +17,8 @@ main {
             font-weight: 700;
             background: #F6F6F6;
             transition: background $transitionsTime;
-            &.active {
+            cursor: pointer;
+            &.active-gender {
                 background: #fff;
             }
             &:hover {
@@ -40,6 +43,42 @@ main {
                 }
                 &:hover .card-layover {
                     top: 0;
+                }
+            }
+
+            .featured-item-info {
+                margin-top: 20px;
+                text-align: left;
+                h4, .category {
+                    transition: color $transitionsTime;
+                    margin-bottom: 10px;
+                    &:hover {
+                        color: $brandColor;
+                    }
+                }
+                .categories {
+                    font-size: 12px;
+                    font-weight: 500;
+                    .category {
+                        cursor: pointer;
+                        &::after {
+                            content: ", ";
+                        }
+                        &:last-child::after {
+                            content: ".";
+                        }
+                    }
+                }
+                .prices {
+                    padding-top: 15px;
+                    color: $brandColor;
+                    .original-price {
+                        font-size: 13px;
+                        text-decoration: line-through;
+                    }
+                    .price {
+                        font-weight: 500;
+                    }
                 }
             }
         }
