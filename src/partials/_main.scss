@@ -105,6 +105,7 @@ main {
         }
         .btn {
             @include mainBtn;
+            font-size: 12px;
         }
         &.winter {
             background: url("../img/collections/winter_collection.jpg");
@@ -119,4 +120,9 @@ main {
             @include backgroundImgDefault;
         }
     }
+}
+
+#best-seller {
+    padding: $verticalPadding $horizontalPadding;
+
 }

@@ -56,7 +56,7 @@
                         </div>
                         <div class="menu-container">
                             <ul class="list-inline">
-                                <li class="links" v-for="link in navabarLinks">
+                                <li v-for="(link, index) in navabarLinks" class="links" :class="(index == 0) ? 'active-link' : 'inactive-link'">
                                     <a href="#">
                                         {{ link.name }}
                                         <i v-if="link.dropdown" class="fas fa-chevron-down"></i>
@@ -156,7 +156,10 @@
                     </div>
                 </section>
 
-                <section id="best-seller"></section>
+                <section id="best-seller">
+                    <h2 class="title">Best Seller</h2>
+                    <p class="subtitle">Must have products from our top sellers</p>
+                </section>
 
                 <section id="promotions"></section>
 
