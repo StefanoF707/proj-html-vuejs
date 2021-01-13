@@ -30,7 +30,7 @@ main {
     .featured-bottom {
         @include horizontalFlex;
         .featured-item {
-            width: calc(100% / 4);
+            width: 25%;
             .featured-item-preview {
                 position: relative;
                 overflow: hidden;
@@ -81,6 +81,42 @@ main {
                     }
                 }
             }
+        }
+    }
+}
+
+#collections {
+    @include horizontalFlex;
+    .collections-item {
+        @include verticalFlex;
+        justify-content: flex-end;
+        width: calc(100% / 3);
+        height: 90vh;
+        color: #fff;
+        padding-bottom: $verticalPadding / 2;
+        @include backgroundLayover;
+        h2 {
+            font-size: 2.2em;
+        }
+        p {
+            font-size: 1.2em;
+            text-transform: uppercase;
+            margin: 20px 0 30px;
+        }
+        .btn {
+            @include mainBtn;
+        }
+        &.winter {
+            background: url("../img/collections/winter_collection.jpg");
+            @include backgroundImgDefault;
+        }
+        &.spring {
+            background: url("../img/collections/spring_collection.jpg");
+            @include backgroundImgDefault;
+        }
+        &.autumn {
+            background: url("../img/collections/autumn_collection.jpg");
+            @include backgroundImgDefault;
         }
     }
 }

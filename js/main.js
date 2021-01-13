@@ -170,6 +170,7 @@ let app = new Vue (
                 },
             ],
             genders: ["Men", "Women", "Accessories"],
+            collections: ["Winter", "Spring", "Autumn"],
             indexFeatured: 0,
         },
         methods: {
