@@ -213,6 +213,7 @@ let app = new Vue (
             threeOnSale: [],
             bestsellers: [],
             newArrivals: [],
+            newsletterUsers: [],
             genders: ["Men", "Women", "Accessories"],
             collections: ["Winter", "Spring", "Autumn"],
             testimonials: [
@@ -229,6 +230,7 @@ let app = new Vue (
             ],
             indexFeatured: 0,
             indexTestimonials: 0,
+            inputEmail: "",
         },
         methods: {
             manageFeatured: function (i) {
@@ -244,12 +246,19 @@ let app = new Vue (
                 this.filterGender = this.products.filter( (el) => {
                     return el.gender == i && el.isFeatured;
                 } );
+            },
 
+            getEmail: function () {
+                if (this.inputEmail != "") {
+                    this.newsletterUsers.push(this.inputEmail);
+                    this.inputEmail = "";
+                }
             },
 
             filterArrays: function() {
 
                 this.products.forEach( (element) => {
+
                     if (this.threeOnSale.length < 3) {
                         if (element.price != element.originalPrice) {
                             this.threeOnSale.push(element);
@@ -271,7 +280,6 @@ let app = new Vue (
                     }
 
                 } );
-
             },
 
         },

@@ -428,7 +428,16 @@
             <!-- newsletter, info e credits -->
             <footer>
 
-                <section id="newsletter"></section>
+                <section id="newsletter">
+                    <div class="newsletter-left">
+                        <i class="far fa-envelope"></i>
+                        <h3>Subscribe now and get special offers</h3>
+                    </div>
+                    <div class="newsletter-right">
+                        <input type="email" placeholder="Insert your email" class="email-input" v-model="inputEmail">
+                        <span class="email-btn" @click="getEmail">send</span>
+                    </div>
+                </section>
 
                 <section id="about-us"></section>
 
