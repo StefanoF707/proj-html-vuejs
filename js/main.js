@@ -11,6 +11,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "blue_jacket_and_white_stripe_tee",
                     gender: 0,
+                    isNewArrival: false,
                     isBestseller: false,
                     isTopRated: false,
                 },
@@ -22,6 +23,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "spring_printed_dress",
                     gender: 1,
+                    isNewArrival: true,
                     isBestseller: true,
                     isTopRated: true,
                     review: "admin",
@@ -34,6 +36,7 @@ let app = new Vue (
                     isFeatured: false,
                     preview: "blue_leather_jacket",
                     gender: 0,
+                    isNewArrival: false,
                     isBestseller: false,
                     isTopRated: false,
                 },
@@ -45,6 +48,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "casual_leather_belts",
                     gender: 2,
+                    isNewArrival: true,
                     isBestseller: false,
                     isTopRated: false,
                 },
@@ -56,6 +60,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "modern_black_leather_suit",
                     gender: 0,
+                    isNewArrival: true,
                     isBestseller: false,
                     isTopRated: false,
                 },
@@ -67,6 +72,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "black_elegant_leather_jacket",
                     gender: 0,
+                    isNewArrival: false,
                     isBestseller: true,
                     isTopRated: true,
                     review: "admin",
@@ -79,6 +85,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "leather_gloves",
                     gender: 2,
+                    isNewArrival: false,
                     isBestseller: false,
                     isTopRated: true,
                     review: "Beardman",
@@ -91,6 +98,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "hipster_black_top",
                     gender: 1,
+                    isNewArrival: false,
                     isBestseller: true,
                     isTopRated: false,
                 },
@@ -102,6 +110,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "modern_leather_boots",
                     gender: 2,
+                    isNewArrival: false,
                     isBestseller: false,
                     isTopRated: false,
                 },
@@ -113,6 +122,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "black_leather_suit",
                     gender: 0,
+                    isNewArrival: true,
                     isBestseller: true,
                     isTopRated: false,
                 },
@@ -124,6 +134,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "brown_dress_shoes",
                     gender: 2,
+                    isNewArrival: false,
                     isBestseller: false,
                     isTopRated: false,
                 },
@@ -135,6 +146,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "black_leather_jacket",
                     gender: 1,
+                    isNewArrival: true,
                     isBestseller: true,
                     isTopRated: false,
                 },
@@ -146,6 +158,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "modern_love_tee",
                     gender: 1,
+                    isNewArrival: true,
                     isBestseller: true,
                     isTopRated: false,
                 },
@@ -199,6 +212,7 @@ let app = new Vue (
             threeFeatured: [],
             threeOnSale: [],
             bestsellers: [],
+            newArrivals: [],
             genders: ["Men", "Women", "Accessories"],
             collections: ["Winter", "Spring", "Autumn"],
             testimonials: [
@@ -250,6 +264,10 @@ let app = new Vue (
 
                     if (element.isBestseller) {
                         this.bestsellers.push(element);
+                    }
+
+                    if (element.isNewArrival) {
+                        this.newArrivals.push(element);
                     }
 
                 } );

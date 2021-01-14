@@ -174,7 +174,7 @@
                                 </div>
                                 <div class="prices">
                                     <span v-if="bestseller.originalPrice != bestseller.price" class="original-price">{{ bestseller.originalPrice }}</span>
-                                    <span class="price">{{ bestseller.price }} </span>
+                                    <span class="price">{{ bestseller.price }}</span>
 
                                     <a href="#" class="cart">
                                         <i class="fas fa-shopping-cart"></i>
@@ -218,6 +218,41 @@
                 <section id="new-arrivals">
                     <h2 class="section-title">New Arrivals</h2>
                     <p class="section-subtitle">Brand new products from top designers</p>
+
+                    <div class="new-arrivals-container">
+
+                        <span class="slider-left">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+
+                        <div v-for="newArrival in newArrivals.slice(0, 5)" class="new-arrival-item">
+                            <img :src="'img/products/' + newArrival.preview + '-400x520.jpg'" :alt="newArrival.name" class="img100">
+                            <div class="card-layover">
+                                <h4>{{ newArrival.name }}</h4>
+                                <div class="categories">
+                                    <span v-for="category in newArrival.categories">{{ category }}</span>
+                                </div>
+                                <div class="prices">
+                                    <span v-if="newArrival.originalPrice != newArrival.price" class="original-price">{{ newArrival.originalPrice }}</span>
+                                    <span class="price">{{ newArrival.price }}</span>
+
+                                    <a href="#" class="cart">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Add to cart
+                                    </a>
+                                    <a href="#" class="details">
+                                        <i class="fas fa-bars"></i>
+                                        Details
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="slider-right">
+                            <i class="fas fa-chevron-right"></i>
+                        </span>
+                    </div>
                 </section>
 
                 <section id="testimonals">

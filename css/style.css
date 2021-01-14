@@ -578,7 +578,88 @@ main {
 }
 
 #new-arrivals {
-  padding: 100px 90px;
+  padding: 100px 0;
+}
+#new-arrivals .new-arrivals-container {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  position: relative;
+}
+#new-arrivals .new-arrivals-container .slider-left, #new-arrivals .new-arrivals-container .slider-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 15px;
+  padding: 20px 10px;
+  background: #00000040;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+#new-arrivals .new-arrivals-container .slider-left:hover, #new-arrivals .new-arrivals-container .slider-right:hover {
+  background-color: #00000080;
+}
+#new-arrivals .new-arrivals-container .slider-left {
+  left: 0;
+  z-index: 2;
+}
+#new-arrivals .new-arrivals-container .slider-right {
+  right: 0;
+}
+#new-arrivals .new-arrivals-container .new-arrival-item {
+  width: calc(100% / 5);
+  position: relative;
+  overflow: hidden;
+}
+#new-arrivals .new-arrivals-container .new-arrival-item .card-layover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #427ed5ee, #e280b1);
+  font-weight: 600;
+  color: #fff;
+  transition: top 0.3s;
+  cursor: pointer;
+}
+#new-arrivals .new-arrivals-container .new-arrival-item .card-layover .categories {
+  font-size: 11px;
+  margin: 10px 0;
+}
+#new-arrivals .new-arrivals-container .new-arrival-item .card-layover .categories span::after {
+  content: ", ";
+}
+#new-arrivals .new-arrivals-container .new-arrival-item .card-layover .categories span:last-child::after {
+  content: "";
+}
+#new-arrivals .new-arrivals-container .new-arrival-item .card-layover .prices .original-price {
+  text-decoration: line-through;
+}
+#new-arrivals .new-arrivals-container .new-arrival-item .card-layover .prices .original-price::before {
+  content: "$";
+}
+#new-arrivals .new-arrivals-container .new-arrival-item .card-layover .prices .price::before {
+  content: "$";
+}
+#new-arrivals .new-arrivals-container .new-arrival-item .card-layover .cart, #new-arrivals .new-arrivals-container .new-arrival-item .card-layover .details {
+  position: absolute;
+  bottom: 20px;
+  font-size: 11px;
+}
+#new-arrivals .new-arrivals-container .new-arrival-item .card-layover .cart {
+  left: 20px;
+}
+#new-arrivals .new-arrivals-container .new-arrival-item .card-layover .details {
+  right: 20px;
+}
+#new-arrivals .new-arrivals-container .new-arrival-item:hover .card-layover {
+  top: 0;
 }
 
 #testimonals {

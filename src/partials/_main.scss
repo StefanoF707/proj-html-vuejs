@@ -185,7 +185,33 @@ main {
 }
 
 #new-arrivals {
-    padding: $verticalPadding $horizontalPadding;
+    padding: $verticalPadding 0;
+    .new-arrivals-container {
+        @include horizontalFlex;
+        margin-top: 30px;
+        position: relative;
+        .slider-left, .slider-right {
+            @include sliders;
+        }
+        .slider-left {
+            left: 0;
+            z-index: 2;
+        }
+        .slider-right {
+            right: 0;
+        }
+        .new-arrival-item {
+            width: calc(100% / 5);
+            position: relative;
+            overflow: hidden;
+            .card-layover {
+                @include carouselCardsLayover;
+            }
+            &:hover .card-layover {
+                top: 0;
+            }
+        }
+    }
 }
 
 #testimonals {
