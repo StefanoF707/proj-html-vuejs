@@ -114,10 +114,61 @@
     cursor: pointer;
 }
 
+@mixin carouselCardsLayover {
+    @include cardsLayover;
+    .categories {
+        font-size: 11px;
+        margin: 10px 0;
+        span::after{
+            content: ", ";
+        }
+        span:last-child::after {
+            content: "";
+        }
+    }
+    .prices {
+        .original-price {
+            text-decoration: line-through;
+            &::before {
+                content: "$";
+            }
+        }
+        .price::before {
+            content: "$";
+        }
+    }
+    .cart, .details {
+        position: absolute;
+        bottom: 20px;
+        font-size: 11px;
+    }
+    .cart {
+        left: 20px;
+    }
+    .details {
+        right: 20px;
+    }
+}
+
 @mixin itemBottomProp {
     margin-bottom: 10px;
     transition: color $transitionsTime;
     &:hover {
         color: $brandColor;
+    }
+}
+
+@mixin sliders {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 15px;
+    padding: 20px 10px;
+    background: #00000040;
+    cursor: pointer;
+    transition: background-color $transitionsTime;
+    &:hover {
+        background-color: #00000080;
     }
 }

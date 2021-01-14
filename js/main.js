@@ -11,6 +11,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "blue_jacket_and_white_stripe_tee",
                     gender: 0,
+                    isBestseller: false,
                     isTopRated: false,
                 },
                 {
@@ -21,6 +22,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "spring_printed_dress",
                     gender: 1,
+                    isBestseller: true,
                     isTopRated: true,
                     review: "admin",
                 },
@@ -32,6 +34,7 @@ let app = new Vue (
                     isFeatured: false,
                     preview: "blue_leather_jacket",
                     gender: 0,
+                    isBestseller: false,
                     isTopRated: false,
                 },
                 {
@@ -42,6 +45,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "casual_leather_belts",
                     gender: 2,
+                    isBestseller: false,
                     isTopRated: false,
                 },
                 {
@@ -52,6 +56,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "modern_black_leather_suit",
                     gender: 0,
+                    isBestseller: false,
                     isTopRated: false,
                 },
                 {
@@ -62,6 +67,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "black_elegant_leather_jacket",
                     gender: 0,
+                    isBestseller: true,
                     isTopRated: true,
                     review: "admin",
                 },
@@ -73,6 +79,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "leather_gloves",
                     gender: 2,
+                    isBestseller: false,
                     isTopRated: true,
                     review: "Beardman",
                 },
@@ -84,6 +91,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "hipster_black_top",
                     gender: 1,
+                    isBestseller: true,
                     isTopRated: false,
                 },
                 {
@@ -94,6 +102,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "modern_leather_boots",
                     gender: 2,
+                    isBestseller: false,
                     isTopRated: false,
                 },
                 {
@@ -104,6 +113,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "black_leather_suit",
                     gender: 0,
+                    isBestseller: true,
                     isTopRated: false,
                 },
                 {
@@ -114,6 +124,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "brown_dress_shoes",
                     gender: 2,
+                    isBestseller: false,
                     isTopRated: false,
                 },
                 {
@@ -124,6 +135,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "black_leather_jacket",
                     gender: 1,
+                    isBestseller: true,
                     isTopRated: false,
                 },
                 {
@@ -134,10 +146,10 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "modern_love_tee",
                     gender: 1,
+                    isBestseller: true,
                     isTopRated: false,
                 },
             ],
-            filterGender: [],
             socials: [
                 {
                     name: 'Facebook',
@@ -156,6 +168,7 @@ let app = new Vue (
                     iconClass: 'fab fa-youtube'
                 },
             ],
+            brands: ["_1", "_2", "_3", "_4", "_5", "_6", "_7"],
             navabarLinks: [
                 {
                     name: "Home",
@@ -182,8 +195,10 @@ let app = new Vue (
                     dropdown: true,
                 },
             ],
+            filterGender: [],
             threeFeatured: [],
             threeOnSale: [],
+            bestsellers: [],
             genders: ["Men", "Women", "Accessories"],
             collections: ["Winter", "Spring", "Autumn"],
             testimonials: [
@@ -218,15 +233,7 @@ let app = new Vue (
 
             },
 
-            filterShowcase: function() {
-
-                this.products.forEach( (element) => {
-                    if (this.threeFeatured.length < 3) {
-                        if (element.isFeatured) {
-                            this.threeFeatured.push(element);
-                        }
-                    }
-                } );
+            filterArrays: function() {
 
                 this.products.forEach( (element) => {
                     if (this.threeOnSale.length < 3) {
@@ -234,14 +241,25 @@ let app = new Vue (
                             this.threeOnSale.push(element);
                         }
                     }
+
+                    if (this.threeFeatured.length < 3) {
+                        if (element.isFeatured) {
+                            this.threeFeatured.push(element);
+                        }
+                    }
+
+                    if (element.isBestseller) {
+                        this.bestsellers.push(element);
+                    }
+
                 } );
 
+            },
 
-            }
         },
         mounted: function () {
             this.getFeatured(this.indexFeatured);
-            this.filterShowcase();
+            this.filterArrays();
         }
     }
 );

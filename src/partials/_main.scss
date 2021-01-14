@@ -118,7 +118,32 @@ main {
 
 #best-seller {
     padding: $verticalPadding $horizontalPadding;
-
+    .bestseller-container {
+        @include horizontalFlex;
+        margin-top: 30px;
+        position: relative;
+        .slider-left, .slider-right {
+            @include sliders;
+        }
+        .slider-left {
+            left: 0;
+            z-index: 2;
+        }
+        .slider-right {
+            right: 0;
+        }
+        .bestseller-item {
+            width: calc(100% / 5);
+            position: relative;
+            overflow: hidden;
+            .card-layover {
+                @include carouselCardsLayover;
+            }
+            &:hover .card-layover {
+                top: 0;
+            }
+        }
+    }
 }
 
 #promotions {
@@ -292,6 +317,18 @@ main {
 }
 
 #brands {
-    padding: $verticalPadding 0;
-    background: red;
+    padding: ($verticalPadding / 2) $horizontalPadding;
+    background: #f6f6f6;
+    h3 {
+        text-transform: uppercase;
+        font-weight: $standardWeight;
+    }
+    .brands-container {
+        @include horizontalFlex;
+        margin-top: 30px;
+        .brand {
+            width: calc(100% / 5 - 80px);
+            margin: 0 40px;
+        }
+    }
 }

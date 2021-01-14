@@ -157,6 +157,43 @@
                 <section id="best-seller">
                     <h2 class="section-title">Best Seller</h2>
                     <p class="section-subtitle">Must have products from our top sellers</p>
+
+
+                    <div class="bestseller-container">
+
+                        <span class="slider-left">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+
+                        <div v-for="bestseller in bestsellers.slice(0, 5)" class="bestseller-item">
+                            <img :src="'img/products/' + bestseller.preview + '-400x520.jpg'" :alt="bestseller.name" class="img100">
+                            <div class="card-layover">
+                                <h4>{{ bestseller.name }}</h4>
+                                <div class="categories">
+                                    <span v-for="category in bestseller.categories">{{ category }}</span>
+                                </div>
+                                <div class="prices">
+                                    <span v-if="bestseller.originalPrice != bestseller.price" class="original-price">{{ bestseller.originalPrice }}</span>
+                                    <span class="price">{{ bestseller.price }} </span>
+
+                                    <a href="#" class="cart">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Add to cart
+                                    </a>
+                                    <a href="#" class="details">
+                                        <i class="fas fa-bars"></i>
+                                        Details
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="slider-right">
+                            <i class="fas fa-chevron-right"></i>
+                        </span>
+                    </div>
+
                 </section>
 
                 <section id="promotions">
@@ -338,11 +375,16 @@
                             </ul>
                         </div>
                     </div>
-
                 </section>
 
                 <section id="brands">
-                    dfufwveuy
+                    <h3>brand logos</h3>
+
+                    <div class="brands-container">
+                        <div v-for="(brand, index) in brands.slice(0, 5)" class="brand">
+                            <img :src="'img/brands/b_logotype' + brands[index] + '.png'" alt="logo brand" class="img100">
+                        </div>
+                    </div>
                 </section>
             </main>
             <!-- /tutte le sezioni del sito -->
