@@ -106,5 +106,19 @@
 }
 
 #credits {
+    padding: ($verticalPadding / 2) $horizontalPadding;
     background: darken($footerBackground, 10%);
+    text-align: center;
+    color: $footerColor;
+    .copyright {
+        margin-bottom: 20px;
+        font-size: 13px;
+        font-weight: $standardWeight;
+        a {
+            transition: color $transitionsTime;
+            &:hover {
+                color: $brandColor;
+            }
+        }
+    }
 }
