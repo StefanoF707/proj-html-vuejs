@@ -34,7 +34,7 @@ body {
 
 .section-subtitle {
   font-size: 1em;
-  margin-top: 20px;
+  margin: 20px 0 50px;
 }
 
 .item-title {
@@ -281,7 +281,7 @@ main {
   padding: 100px 90px;
 }
 #featured .featured-top {
-  margin: 65px 0;
+  margin: 30px 0 30px;
   text-align: center;
   font-size: 0;
 }
@@ -340,8 +340,8 @@ main {
   text-align: left;
 }
 #featured .featured-bottom .featured-item .featured-item-info h4, #featured .featured-bottom .featured-item .featured-item-info .category {
-  transition: color 0.3s;
   margin-bottom: 10px;
+  transition: color 0.3s;
 }
 #featured .featured-bottom .featured-item .featured-item-info h4:hover, #featured .featured-bottom .featured-item .featured-item-info .category:hover {
   color: #427ed5;
@@ -519,4 +519,47 @@ main {
 #testimonals .testimonials-item nav i {
   margin: 0 5px;
   cursor: pointer;
+}
+
+#our-blog {
+  padding: 100px 90px;
+}
+#our-blog .blog-items-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#our-blog .blog-items-container .blog-item {
+  margin: 0 20px;
+  width: calc(100% / 3 - 40px);
+}
+#our-blog .blog-items-container .blog-item .item-preview {
+  overflow: hidden;
+}
+#our-blog .blog-items-container .blog-item .item-preview img {
+  transition: all 0.9s;
+}
+#our-blog .blog-items-container .blog-item .item-preview:hover img {
+  transform: scale(1.1);
+  filter: opacity(0.8);
+}
+#our-blog .blog-items-container .blog-item .item-info {
+  margin-top: 20px;
+  text-align: left;
+}
+#our-blog .blog-items-container .blog-item .item-info h4, #our-blog .blog-items-container .blog-item .item-info a {
+  margin-bottom: 10px;
+  transition: color 0.3s;
+}
+#our-blog .blog-items-container .blog-item .item-info h4:hover, #our-blog .blog-items-container .blog-item .item-info a:hover {
+  color: #427ed5;
+}
+#our-blog .blog-items-container .blog-item .item-info span {
+  font-size: 12px;
+}
+#our-blog .blog-items-container .blog-item .item-info p {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-top: 15px;
 }

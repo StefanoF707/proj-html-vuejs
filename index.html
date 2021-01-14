@@ -102,9 +102,7 @@
                     <p class="section-subtitle">Must have products from our top sellers</p>
 
                     <nav class="featured-top">
-                        <!-- gestire con vue -->
                         <span v-for="(gender, index) in genders" class="featured-btn" :class="(index == indexFeatured) ? 'active-gender' : ''" @click="manageFeatured(index)">{{ gender }}</span>
-                        <!-- /gestire con vue -->
                     </nav>
 
                     <div class="featured-bottom">
@@ -201,7 +199,63 @@
                     <!-- Da gestire setInterval -->
                 </section>
 
-                <section id="our-blog"></section>
+                <section id="our-blog">
+                    <h2 class="section-title">From Our Blog</h2>
+                    <p class="section-subtitle">The latest Classic Shop news</p>
+
+                    <div class="blog-items-container">
+                        <div class="blog-item">
+                            <div class="item-preview">
+                                <a href="#">
+                                    <img src="img/blog/post_img_12.jpg" alt="blogpost" class="img100">
+                                </a>
+                            </div>
+                            <div class="item-info">
+                                <h4>
+                                    <a href="#">
+                                        Aenean lobortis sapien enim viverra
+                                    </a>
+                                </h4>
+                                <span>September 9th, 2015 |  <a href="">0 Comments</a></span>
+                                <p>Donec finibus sit amet orci eget ultricies. Praesent posuere ante ut erat fringilla</p>
+                            </div>
+                        </div>
+
+                        <div class="blog-item">
+                            <div class="item-preview">
+                                <a href="#">
+                                    <img src="img/blog/post_img_11.jpg" alt="blogpost" class="img100">
+                                </a>
+                            </div>
+                            <div class="item-info">
+                                <h4>
+                                    <a href="#">
+                                        Duis ac massa semper maximus
+                                    </a>
+                                </h4>
+                                <span>September 9th, 2015 |  <a href="">0 Comments</a></span>
+                                <p>Donec finibus sit amet orci eget ultricies. Praesent posuere ante ut erat fringilla</p>
+                            </div>
+                        </div>
+
+                        <div class="blog-item">
+                            <div class="item-preview">
+                                <a href="#">
+                                    <img src="img/blog/post_img_10.jpg" alt="blogpost" class="img100">
+                                </a>
+                            </div>
+                            <div class="item-info">
+                                <h4>
+                                    <a href="#">
+                                        Nunc fermint nulla eu justo sem id
+                                    </a>
+                                </h4>
+                                <span>September 9th, 2015 |  <a href="">0 Comments</a></span>
+                                <p>Donec finibus sit amet orci eget ultricies. Praesent posuere ante ut erat fringilla</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <section id="showcase"></section>
 

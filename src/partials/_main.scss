@@ -6,7 +6,7 @@ main {
     padding: $verticalPadding $horizontalPadding;
 
     .featured-top {
-        margin: 65px 0;
+        margin: 30px 0 30px;
         text-align: center;
         font-size: 0;
 
@@ -48,18 +48,14 @@ main {
             }
 
             .featured-item-info {
-                margin-top: 20px;
+                margin-top: $marginBtwCardSections;
                 text-align: left;
                 h4, .category {
-                    transition: color $transitionsTime;
-                    margin-bottom: 10px;
-                    &:hover {
-                        color: $brandColor;
-                    }
+                    @include itemBottomProp;
                 }
                 .categories {
                     font-size: 12px;
-                    font-weight: 500;
+                    font-weight: $standardWeight;
                     .category {
                         cursor: pointer;
                         &::after {
@@ -78,7 +74,7 @@ main {
                         text-decoration: line-through;
                     }
                     .price {
-                        font-weight: 500;
+                        font-weight: $standardWeight;
                     }
                 }
             }
@@ -153,7 +149,7 @@ main {
         p {
             margin: 20px 0;
             font-size: 13px;
-            font-weight: 500;
+            font-weight: $standardWeight;
             max-width: 60%;
         }
         .btn {
@@ -175,14 +171,55 @@ main {
     .testimonials-item {
         p {
             margin: 30px 0;
-            line-height: 30px;
-            font-weight: 500;
+            line-height: $paragraphsLineHeight;
+            font-weight: $standardWeight;
         }
         nav {
             margin-top: 30px;
             i {
                 margin: 0 5px;
                 cursor: pointer;
+            }
+        }
+    }
+}
+
+
+#our-blog {
+    padding: $verticalPadding $horizontalPadding;
+    .blog-items-container {
+        @include horizontalFlex;
+        justify-content: center;
+        .blog-item {
+            margin: 0 20px;
+            width: calc(100% / 3 - 40px);
+            .item-preview {
+                overflow: hidden;
+                img {
+                    transition: all $transitionsTime * 3;
+                }
+                &:hover {
+                    img {
+                        transform: scale(1.1);
+                        filter: opacity(0.80);
+                    }
+                }
+            }
+            .item-info {
+                margin-top: $marginBtwCardSections;
+                text-align: left;
+                h4, a {
+                    @include itemBottomProp;
+                }
+                span {
+                    font-size: 12px;
+                }
+                p {
+                    font-size: 13px;
+                    font-weight: $standardWeight;
+                    line-height: $paragraphsLineHeight;
+                    margin-top: 15px;
+                }
             }
         }
     }

@@ -113,3 +113,11 @@
     transition: top $transitionsTime;
     cursor: pointer;
 }
+
+@mixin itemBottomProp {
+    margin-bottom: 10px;
+    transition: color $transitionsTime;
+    &:hover {
+        color: $brandColor;
+    }
+}
