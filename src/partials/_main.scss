@@ -187,13 +187,17 @@ main {
 
 #our-blog {
     padding: $verticalPadding $horizontalPadding;
-    .blog-items-container {
+
+    #articles {
         @include horizontalFlex;
         justify-content: center;
-        .blog-item {
+        padding-bottom: $verticalPadding;
+        border-bottom: 2px solid $bordersColor;
+        .article {
             margin: 0 20px;
             width: calc(100% / 3 - 40px);
-            .item-preview {
+            .article-preview {
+                font-size: 0;
                 overflow: hidden;
                 img {
                     transition: all $transitionsTime * 3;
@@ -205,7 +209,7 @@ main {
                     }
                 }
             }
-            .item-info {
+            .article-info {
                 margin-top: $marginBtwCardSections;
                 text-align: left;
                 h4, a {
@@ -223,4 +227,71 @@ main {
             }
         }
     }
+
+    #showcase {
+        padding-top: $verticalPadding;
+        @include horizontalFlex;
+        text-align: left;
+        .showcase-item {
+            width: calc(25% - 40px);
+            margin: 0 20px;
+            h5 {
+                font-size: 1.1em;
+                font-weight: $standardWeight + 100;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+            }
+            li {
+                @include horizontalFlex;
+                justify-content: space-between;
+                border-bottom: 1px solid $bordersColor;
+                padding: 10px 0;
+                .info {
+                    width: 70%;
+                    * {
+                        display: block;
+                    }
+                    h6 {
+                        font-weight: $standardWeight;
+                        font-size: 16px;
+                        @include itemBottomProp;
+                    }
+                    .ratio {
+                        color: $brandColor;
+                        margin-bottom: 10px;
+                        * {
+                            display: inline;
+                        }
+                    }
+                    .prices {
+                        font-weight: $standardWeight + 100;
+                        * {
+                            display: inline;
+                        }
+                        *::before {
+                            content: "$";
+                        }
+                        .original-price {
+                            text-decoration: line-through;
+                        }
+                        .price {
+                            text-decoration: underline;
+                        }
+                    }
+                    .review {
+                        font-size: 13px;
+                        font-weight: $standardWeight;
+                    }
+                }
+                .preview {
+                    width: 25%;
+                }
+            }
+        }
+    }
+}
+
+#brands {
+    padding: $verticalPadding 0;
+    background: red;
 }

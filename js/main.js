@@ -4,24 +4,6 @@ let app = new Vue (
         data: {
             products: [
                 {
-                    name: "Black Leather Jacket",
-                    categories: ["Men", "Jackets", "Jeans"],
-                    price: 200,
-                    originalPrice: 235,
-                    isFeatured: true,
-                    preview: "black_elegant_leather_jacket",
-                    gender: 0,
-                },
-                {
-                    name: "Black Leather Suit",
-                    categories: ["Men", "Jackets"],
-                    price: 176,
-                    originalPrice: 176,
-                    isFeatured: true,
-                    preview: "black_leather_suit",
-                    gender: 0,
-                },
-                {
                     name: "Blue Jacket & Stipe Tee",
                     categories: ["Men", "Jackets", "Suits"],
                     price: 580,
@@ -29,15 +11,7 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "blue_jacket_and_white_stripe_tee",
                     gender: 0,
-                },
-                {
-                    name: "Modern Black Leather Suit",
-                    categories: ["Men", "Jackets"],
-                    price: 96,
-                    originalPrice: 96,
-                    isFeatured: true,
-                    preview: "modern_black_leather_suit",
-                    gender: 0,
+                    isTopRated: false,
                 },
                 {
                     name: "Spring Printed Dress",
@@ -47,33 +21,18 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "spring_printed_dress",
                     gender: 1,
+                    isTopRated: true,
+                    review: "admin",
                 },
                 {
-                    name: "Modern Love Tee",
-                    categories: ["T-Shirts", "Women"],
-                    price: 68,
-                    originalPrice: 68,
-                    isFeatured: true,
-                    preview: "modern_love_tee",
-                    gender: 1,
-                },
-                {
-                    name: "Black Jacket",
-                    categories: ["Women", "Jackets"],
-                    price: 125,
-                    originalPrice: 125,
-                    isFeatured: true,
-                    preview: "black_leather_jacket",
-                    gender: 1,
-                },
-                {
-                    name: "Hipster Black Top",
-                    categories: ["T-Shirts", "Women"],
-                    price: 57,
-                    originalPrice: 57,
-                    isFeatured: true,
-                    preview: "hipster_black_top",
-                    gender: 1,
+                    name: "Blue Leather Jacket",
+                    categories: ["Men", "Jackets"],
+                    price: 60,
+                    originalPrice: 80,
+                    isFeatured: false,
+                    preview: "blue_leather_jacket",
+                    gender: 0,
+                    isTopRated: false,
                 },
                 {
                     name: "Casual Leather Belts",
@@ -83,6 +42,28 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "casual_leather_belts",
                     gender: 2,
+                    isTopRated: false,
+                },
+                {
+                    name: "Modern Black Leather Suit",
+                    categories: ["Men", "Jackets"],
+                    price: 96,
+                    originalPrice: 96,
+                    isFeatured: true,
+                    preview: "modern_black_leather_suit",
+                    gender: 0,
+                    isTopRated: false,
+                },
+                {
+                    name: "Black Leather Jacket",
+                    categories: ["Men", "Jackets", "Jeans"],
+                    price: 200,
+                    originalPrice: 235,
+                    isFeatured: true,
+                    preview: "black_elegant_leather_jacket",
+                    gender: 0,
+                    isTopRated: true,
+                    review: "admin",
                 },
                 {
                     name: "Leather Gloves",
@@ -92,6 +73,18 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "leather_gloves",
                     gender: 2,
+                    isTopRated: true,
+                    review: "Beardman",
+                },
+                {
+                    name: "Hipster Black Top",
+                    categories: ["T-Shirts", "Women"],
+                    price: 57,
+                    originalPrice: 57,
+                    isFeatured: true,
+                    preview: "hipster_black_top",
+                    gender: 1,
+                    isTopRated: false,
                 },
                 {
                     name: "Modern Leather Boots",
@@ -101,6 +94,17 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "modern_leather_boots",
                     gender: 2,
+                    isTopRated: false,
+                },
+                {
+                    name: "Black Leather Suit",
+                    categories: ["Men", "Jackets"],
+                    price: 176,
+                    originalPrice: 176,
+                    isFeatured: true,
+                    preview: "black_leather_suit",
+                    gender: 0,
+                    isTopRated: false,
                 },
                 {
                     name: "Brown Dress Shoes",
@@ -110,6 +114,27 @@ let app = new Vue (
                     isFeatured: true,
                     preview: "brown_dress_shoes",
                     gender: 2,
+                    isTopRated: false,
+                },
+                {
+                    name: "Black Jacket",
+                    categories: ["Women", "Jackets"],
+                    price: 125,
+                    originalPrice: 125,
+                    isFeatured: true,
+                    preview: "black_leather_jacket",
+                    gender: 1,
+                    isTopRated: false,
+                },
+                {
+                    name: "Modern Love Tee",
+                    categories: ["T-Shirts", "Women"],
+                    price: 68,
+                    originalPrice: 68,
+                    isFeatured: true,
+                    preview: "modern_love_tee",
+                    gender: 1,
+                    isTopRated: false,
                 },
             ],
             filterGender: [],
@@ -157,6 +182,8 @@ let app = new Vue (
                     dropdown: true,
                 },
             ],
+            threeFeatured: [],
+            threeOnSale: [],
             genders: ["Men", "Women", "Accessories"],
             collections: ["Winter", "Spring", "Autumn"],
             testimonials: [
@@ -188,10 +215,33 @@ let app = new Vue (
                 this.filterGender = this.products.filter( (el) => {
                     return el.gender == i && el.isFeatured;
                 } );
+
+            },
+
+            filterShowcase: function() {
+
+                this.products.forEach( (element) => {
+                    if (this.threeFeatured.length < 3) {
+                        if (element.isFeatured) {
+                            this.threeFeatured.push(element);
+                        }
+                    }
+                } );
+
+                this.products.forEach( (element) => {
+                    if (this.threeOnSale.length < 3) {
+                        if (element.price != element.originalPrice) {
+                            this.threeOnSale.push(element);
+                        }
+                    }
+                } );
+
+
             }
         },
         mounted: function () {
             this.getFeatured(this.indexFeatured);
+            this.filterShowcase();
         }
     }
 );

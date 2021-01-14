@@ -524,42 +524,117 @@ main {
 #our-blog {
   padding: 100px 90px;
 }
-#our-blog .blog-items-container {
+#our-blog #articles {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 100px;
+  border-bottom: 2px solid #00000020;
 }
-#our-blog .blog-items-container .blog-item {
+#our-blog #articles .article {
   margin: 0 20px;
   width: calc(100% / 3 - 40px);
 }
-#our-blog .blog-items-container .blog-item .item-preview {
+#our-blog #articles .article .article-preview {
+  font-size: 0;
   overflow: hidden;
 }
-#our-blog .blog-items-container .blog-item .item-preview img {
+#our-blog #articles .article .article-preview img {
   transition: all 0.9s;
 }
-#our-blog .blog-items-container .blog-item .item-preview:hover img {
+#our-blog #articles .article .article-preview:hover img {
   transform: scale(1.1);
   filter: opacity(0.8);
 }
-#our-blog .blog-items-container .blog-item .item-info {
+#our-blog #articles .article .article-info {
   margin-top: 20px;
   text-align: left;
 }
-#our-blog .blog-items-container .blog-item .item-info h4, #our-blog .blog-items-container .blog-item .item-info a {
+#our-blog #articles .article .article-info h4, #our-blog #articles .article .article-info a {
   margin-bottom: 10px;
   transition: color 0.3s;
 }
-#our-blog .blog-items-container .blog-item .item-info h4:hover, #our-blog .blog-items-container .blog-item .item-info a:hover {
+#our-blog #articles .article .article-info h4:hover, #our-blog #articles .article .article-info a:hover {
   color: #427ed5;
 }
-#our-blog .blog-items-container .blog-item .item-info span {
+#our-blog #articles .article .article-info span {
   font-size: 12px;
 }
-#our-blog .blog-items-container .blog-item .item-info p {
+#our-blog #articles .article .article-info p {
   font-size: 13px;
   font-weight: 500;
   line-height: 30px;
   margin-top: 15px;
+}
+#our-blog #showcase {
+  padding-top: 100px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+#our-blog #showcase .showcase-item {
+  width: calc(25% - 40px);
+  margin: 0 20px;
+}
+#our-blog #showcase .showcase-item h5 {
+  font-size: 1.1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+#our-blog #showcase .showcase-item li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #00000020;
+  padding: 10px 0;
+}
+#our-blog #showcase .showcase-item li .info {
+  width: 70%;
+}
+#our-blog #showcase .showcase-item li .info * {
+  display: block;
+}
+#our-blog #showcase .showcase-item li .info h6 {
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 10px;
+  transition: color 0.3s;
+}
+#our-blog #showcase .showcase-item li .info h6:hover {
+  color: #427ed5;
+}
+#our-blog #showcase .showcase-item li .info .ratio {
+  color: #427ed5;
+  margin-bottom: 10px;
+}
+#our-blog #showcase .showcase-item li .info .ratio * {
+  display: inline;
+}
+#our-blog #showcase .showcase-item li .info .prices {
+  font-weight: 600;
+}
+#our-blog #showcase .showcase-item li .info .prices * {
+  display: inline;
+}
+#our-blog #showcase .showcase-item li .info .prices *::before {
+  content: "$";
+}
+#our-blog #showcase .showcase-item li .info .prices .original-price {
+  text-decoration: line-through;
+}
+#our-blog #showcase .showcase-item li .info .prices .price {
+  text-decoration: underline;
+}
+#our-blog #showcase .showcase-item li .info .review {
+  font-size: 13px;
+  font-weight: 500;
+}
+#our-blog #showcase .showcase-item li .preview {
+  width: 25%;
+}
+
+#brands {
+  padding: 100px 0;
+  background: red;
 }

@@ -203,14 +203,14 @@
                     <h2 class="section-title">From Our Blog</h2>
                     <p class="section-subtitle">The latest Classic Shop news</p>
 
-                    <div class="blog-items-container">
-                        <div class="blog-item">
-                            <div class="item-preview">
+                    <div id="articles">
+                        <div class="article">
+                            <div class="article-preview">
                                 <a href="#">
                                     <img src="img/blog/post_img_12.jpg" alt="blogpost" class="img100">
                                 </a>
                             </div>
-                            <div class="item-info">
+                            <div class="article-info">
                                 <h4>
                                     <a href="#">
                                         Aenean lobortis sapien enim viverra
@@ -221,13 +221,13 @@
                             </div>
                         </div>
 
-                        <div class="blog-item">
-                            <div class="item-preview">
+                        <div class="article">
+                            <div class="article-preview">
                                 <a href="#">
                                     <img src="img/blog/post_img_11.jpg" alt="blogpost" class="img100">
                                 </a>
                             </div>
-                            <div class="item-info">
+                            <div class="article-info">
                                 <h4>
                                     <a href="#">
                                         Duis ac massa semper maximus
@@ -238,13 +238,13 @@
                             </div>
                         </div>
 
-                        <div class="blog-item">
-                            <div class="item-preview">
+                        <div class="article">
+                            <div class="article-preview">
                                 <a href="#">
                                     <img src="img/blog/post_img_10.jpg" alt="blogpost" class="img100">
                                 </a>
                             </div>
-                            <div class="item-info">
+                            <div class="article-info">
                                 <h4>
                                     <a href="#">
                                         Nunc fermint nulla eu justo sem id
@@ -255,11 +255,95 @@
                             </div>
                         </div>
                     </div>
+
+                    <div id="showcase">
+                        <div class="showcase-item">
+                            <h5>featured</h5>
+                            <ul>
+                                <li v-for="product in threeFeatured">
+                                    <div class="info">
+                                        <h6><a href="">{{ product.name }}</a></h6>
+                                        <span class="ratio">
+                                            <i v-for="star in 5" v-if="product.isTopRated" class="fas fa-star"></i>
+                                        </span>
+                                        <div class="prices">
+                                            <span v-if="product.originalPrice != product.price" class="original-price">{{ product.originalPrice }}</span>
+                                            <span class="price">{{ product.price }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="preview">
+                                        <img :src=" 'img/products/' + product.preview + '-400x520.jpg'" :alt="product.name" class="img100">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="showcase-item">
+                            <h5>on sale</h5>
+                            <ul>
+                                <li v-for="product in threeOnSale">
+                                    <div class="info">
+                                        <h6><a href="">{{ product.name }}</a></h6>
+                                        <span class="ratio">
+                                            <i v-for="star in 5" v-if="product.isTopRated" class="fas fa-star"></i>
+                                        </span>
+                                        <div class="prices">
+                                            <span v-if="product.originalPrice != product.price" class="original-price">{{ product.originalPrice }}</span>
+                                            <span class="price">{{ product.price }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="preview">
+                                        <img :src=" 'img/products/' + product.preview + '-400x520.jpg'" :alt="product.name" class="img100">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="showcase-item">
+                            <h5>top rated</h5>
+                            <ul>
+                                <li v-for="product in products" v-if="product.isTopRated">
+                                    <div class="info">
+                                        <h6><a href="">{{ product.name }}</a></h6>
+                                        <span class="ratio">
+                                            <i v-for="star in 5" v-if="product.isTopRated" class="fas fa-star"></i>
+                                        </span>
+                                        <div class="prices">
+                                            <span v-if="product.originalPrice != product.price" class="original-price">{{ product.originalPrice }}</span>
+                                            <span class="price">{{ product.price }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="preview">
+                                        <img :src=" 'img/products/' + product.preview + '-400x520.jpg'" :alt="product.name" class="img100">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="showcase-item">
+                            <h5>latest review</h5>
+                            <ul>
+                                <li v-for="product in products" v-if="product.review">
+                                    <div class="info">
+                                        <h6><a href="">{{ product.name }}</a></h6>
+                                        <span class="ratio">
+                                            <i v-for="star in 5" v-if="product.isTopRated" class="fas fa-star"></i>
+                                        </span>
+                                        <span class="review"> by {{ product.review }}</span>
+                                    </div>
+                                    <div class="preview">
+                                        <img :src=" 'img/products/' + product.preview + '-400x520.jpg'" :alt="product.name" class="img100">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </section>
 
-                <section id="showcase"></section>
-
-                <section id="brands"></section>
+                <section id="brands">
+                    dfufwveuy
+                </section>
             </main>
             <!-- /tutte le sezioni del sito -->
 
