@@ -3,6 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/b954c4656e.js" crossorigin="anonymous"></script>
@@ -24,7 +25,7 @@
                         <!-- gestire con v-for -->
                         <div class="socials">
                             <ul class="list-inline">
-                                <li v-for="social in socials">
+                                <li v-for="social in company.socials">
                                     <a href="#"><i :class="social.iconClass"></i></a>
                                     <span>{{ social.name }}</span>
                                 </li>
@@ -439,9 +440,70 @@
                     </div>
                 </section>
 
-                <section id="about-us"></section>
+                <section id="about-us">
 
-                <section id="credits"></section>
+                    <div class="item company">
+                        <div class="logo-container">
+                            <img src="img/avada-logo-footer.png" alt="Logo Avada footer" class="img100">
+                        </div>
+
+                        <ul>
+                            <li>{{ company.address }}</li>
+                            <li>Phone: {{ company.phone }}</li>
+                            <li>Email: {{ company.email }}</li>
+                            <li>Web: {{ company.webSite }}</li>
+                            <li class="socials">
+                                <ul class="list-inline">
+                                    <li v-for="social in company.socials" class="social">
+                                        <a href="#">
+                                            <i :class="social.iconClass"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="item top-rated">
+                        <h5>top rated products</h5>
+                        <ul>
+                            <li v-for="product in products" v-if="product.isTopRated">
+                                <div class="info">
+                                    <h6><a href="">{{ product.name }}</a></h6>
+                                    <span class="ratio">
+                                        <i v-for="star in 5" v-if="product.isTopRated" class="fas fa-star"></i>
+                                    </span>
+                                    <div class="prices">
+                                        <span v-if="product.originalPrice != product.price" class="original-price">{{ product.originalPrice }}</span>
+                                        <span class="price">{{ product.price }}</span>
+                                    </div>
+                                </div>
+                                <div class="preview">
+                                    <img :src=" 'img/products/' + product.preview + '-400x520.jpg'" :alt="product.name" class="img100">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="item posts">
+                        <h5>recent posts</h5>
+                        <ul>
+                            <li v-for="post in posts"><a href="#">{{ post }}</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="item tags">
+                        <h5>tags</h5>
+                        <ul class="list-inline">
+                            <li v-for="tag in tags"><a href="#">{{ tag }}</a></li>
+                        </ul>
+                    </div>
+
+                </section>
+
+                <section id="credits">
+                    credits
+                </section>
 
             </footer>
             <!-- /newsletter, info e credits -->

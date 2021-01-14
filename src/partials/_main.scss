@@ -286,58 +286,7 @@ main {
         .showcase-item {
             width: calc(25% - 40px);
             margin: 0 20px;
-            h5 {
-                font-size: 1.1em;
-                font-weight: $standardWeight + 100;
-                text-transform: uppercase;
-                margin-bottom: 20px;
-            }
-            li {
-                @include horizontalFlex;
-                justify-content: space-between;
-                border-bottom: 1px solid $bordersColor;
-                padding: 10px 0;
-                .info {
-                    width: 70%;
-                    * {
-                        display: block;
-                    }
-                    h6 {
-                        font-weight: $standardWeight;
-                        font-size: 16px;
-                        @include itemBottomProp;
-                    }
-                    .ratio {
-                        color: $brandColor;
-                        margin-bottom: 10px;
-                        * {
-                            display: inline;
-                        }
-                    }
-                    .prices {
-                        font-weight: $standardWeight + 100;
-                        * {
-                            display: inline;
-                        }
-                        *::before {
-                            content: "$";
-                        }
-                        .original-price {
-                            text-decoration: line-through;
-                        }
-                        .price {
-                            text-decoration: underline;
-                        }
-                    }
-                    .review {
-                        font-size: 13px;
-                        font-weight: $standardWeight;
-                    }
-                }
-                .preview {
-                    width: 25%;
-                }
-            }
+            @include showcaseProps($bordersColor);
         }
     }
 }

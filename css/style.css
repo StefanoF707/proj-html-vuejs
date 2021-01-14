@@ -41,6 +41,13 @@ body {
   font-size: 2.2em;
 }
 
+h5 {
+  font-size: 1.1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -315,6 +322,128 @@ i.fa-chevron-down {
 }
 #newsletter .newsletter-right .email-btn:hover {
   background: #6c9ade;
+}
+
+#about-us {
+  display: flex;
+  align-items: center;
+  align-items: flex-start;
+  padding: 50px 90px;
+  background: #2B2E32;
+  color: #a0a5a5;
+  font-weight: 600;
+  font-size: 14px;
+}
+#about-us .item {
+  width: calc(25% - 30px);
+  margin: 0 15px;
+  text-align: left;
+}
+#about-us .company .logo-container {
+  width: 70%;
+  margin-bottom: 30px;
+}
+#about-us .company li {
+  padding: 5px 0;
+}
+#about-us .company .socials {
+  margin-top: 40px;
+}
+#about-us .company .socials .social {
+  margin-right: 15px;
+  font-size: 17px;
+  transition: all 0.3s;
+}
+#about-us .company .socials .social:hover {
+  color: #fff;
+}
+#about-us .top-rated li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #a0a5a5;
+  padding: 10px 0;
+}
+#about-us .top-rated li .info {
+  width: 70%;
+}
+#about-us .top-rated li .info * {
+  display: block;
+}
+#about-us .top-rated li .info h6 {
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 10px;
+  transition: color 0.3s;
+}
+#about-us .top-rated li .info h6:hover {
+  color: #427ed5;
+}
+#about-us .top-rated li .info .ratio {
+  color: #427ed5;
+  margin-bottom: 10px;
+}
+#about-us .top-rated li .info .ratio * {
+  display: inline;
+}
+#about-us .top-rated li .info .prices {
+  font-weight: 600;
+}
+#about-us .top-rated li .info .prices * {
+  display: inline;
+}
+#about-us .top-rated li .info .prices *::before {
+  content: "$";
+}
+#about-us .top-rated li .info .prices .original-price {
+  text-decoration: line-through;
+}
+#about-us .top-rated li .info .prices .price {
+  text-decoration: underline;
+}
+#about-us .top-rated li .info .review {
+  font-size: 13px;
+  font-weight: 500;
+}
+#about-us .top-rated li .preview {
+  width: 25%;
+}
+#about-us .posts li {
+  font-size: 13px;
+  padding: 15px 0;
+  border-bottom: 1px solid #a0a5a5;
+}
+#about-us .posts li a {
+  transition: color 0.3s;
+}
+#about-us .posts li a:hover {
+  color: #427ed5;
+}
+#about-us .posts li a::before {
+  content: "";
+  font-family: "FontAwesome";
+  font-size: 12px;
+  margin-right: 5px;
+}
+#about-us .tags li {
+  margin: 5px 5px 0 0;
+  border: 1px solid #a0a5a5;
+  font-size: 13px;
+  transition: all 0.3s;
+}
+#about-us .tags li a {
+  padding: 5px;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+#about-us .tags li:hover {
+  background: #427ed5;
+  color: #fff;
+}
+
+#credits {
+  background: #181a1c;
 }
 
 main {
@@ -781,12 +910,6 @@ main {
 #our-blog #showcase .showcase-item {
   width: calc(25% - 40px);
   margin: 0 20px;
-}
-#our-blog #showcase .showcase-item h5 {
-  font-size: 1.1em;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin-bottom: 20px;
 }
 #our-blog #showcase .showcase-item li {
   display: flex;

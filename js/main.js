@@ -2,6 +2,31 @@ let app = new Vue (
     {
         el: "#app",
         data: {
+            company: {
+                name: "Avada Classic Shop",
+                address: "12345 North Main Street, New York, NY 555555",
+                phone: "1.800.555.6789",
+                email: "info@company.com",
+                webSite: "Theme-fusion.com",
+                socials: [
+                {
+                    name: 'Facebook',
+                    iconClass: 'fab fa-facebook-f'
+                },
+                {
+                    name: 'Twitter',
+                    iconClass: 'fab fa-twitter'
+                },
+                {
+                    name: 'Instagram',
+                    iconClass: 'fab fa-instagram'
+                },
+                {
+                    name: 'YouTube',
+                    iconClass: 'fab fa-youtube'
+                },
+            ],
+            },
             products: [
                 {
                     name: "Blue Jacket & Stipe Tee",
@@ -163,25 +188,9 @@ let app = new Vue (
                     isTopRated: false,
                 },
             ],
-            socials: [
-                {
-                    name: 'Facebook',
-                    iconClass: 'fab fa-facebook-f'
-                },
-                {
-                    name: 'Twitter',
-                    iconClass: 'fab fa-twitter'
-                },
-                {
-                    name: 'Instagram',
-                    iconClass: 'fab fa-instagram'
-                },
-                {
-                    name: 'YouTube',
-                    iconClass: 'fab fa-youtube'
-                },
-            ],
             brands: ["_1", "_2", "_3", "_4", "_5", "_6", "_7"],
+            posts: ["Aenean lobortis sapien enim viverra", "Duis ac massa semper maximus", "Nunc fermint nulla eu justo sem id", "Aliquam posuere magna eget nibh", "Cras ac nulla ac consecte rutrum", "Fusce mattis nunc ut aliquam"],
+            tags: ["Black", "boots", "Brown", "Casual", "D&G", "Fabric", "flowers", "Grey", "hat", "Hipster", "lines", "multi-purpose", "New York", "Outdoors", "red", "responsive", "summer", "sweater", "Travel", "Warm", "White", "winter"],
             navabarLinks: [
                 {
                     name: "Home",
@@ -249,7 +258,7 @@ let app = new Vue (
             },
 
             getEmail: function () {
-                if (this.inputEmail != "") {
+                if (this.inputEmail != "" && this.inputEmail.includes("@")) {
                     this.newsletterUsers.push(this.inputEmail);
                     this.inputEmail = "";
                 }
