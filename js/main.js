@@ -199,6 +199,7 @@ let app = new Vue (
                     dropdownMenu: {
                         dropdownLinks: ["Home 1", "Home 2", "Home 3"],
                         isOpen: false,
+                        classicMenu: true,
                     },
                 },
                 {
@@ -208,6 +209,7 @@ let app = new Vue (
                     dropdownMenu: {
                         dropdownLinks: ["Shop Full Width", "Shop With Sidebar"],
                         isOpen: false,
+                        classicMenu: true,
                     },
                 },
                 {
@@ -217,6 +219,7 @@ let app = new Vue (
                     dropdownMenu: {
                         dropdownLinks: ["Simple product", "Variable product", "Grouped product", "External/Affiliate product", "Digital Download", "Classic Layout"],
                         isOpen: false,
+                        classicMenu: true,
                     },
                 },
                 {
@@ -224,14 +227,37 @@ let app = new Vue (
                     hasDropdown: true,
                     isActive: false,
                     dropdownMenu: {
-                        dropdownLinks: [],
+                        dropdownLinks: [
+                            {
+                                title: "Men",
+                                poster: "men_"
+                            },
+                            {
+                                title: "Women",
+                                poster: "women_"
+                            },
+                            {
+                                title: "Accessories",
+                                poster: "shoes_"
+                            },
+                            {
+                                title: "Men",
+                                poster: "promotion_"
+                            },
+                        ],
                         isOpen: false,
+                        classicMenu: false,
                     },
                 },
                 {
                     name: "News",
                     hasDropdown: false,
                     isActive: false,
+                    dropdownMenu: {
+                        dropdownLinks: [],
+                        isOpen: false,
+                        classicMenu: false,
+                    },
                 },
                 {
                     name: "Elements",
@@ -240,6 +266,7 @@ let app = new Vue (
                     dropdownMenu: {
                         dropdownLinks: ["Simple product", "Variable product", "Grouped product", "External/Affiliate product", "Digital Download", "Classic Layout", "Shop Full Width", "Shop With Sidebar"],
                         isOpen: false,
+                        classicMenu: true,
                     },
                 },
             ],
@@ -327,7 +354,9 @@ let app = new Vue (
                     if (element.hasDropdown) {
                         if (index != i) {
                             element.dropdownMenu.isOpen = false;
-                            element.isActive = false;
+                            if (index != 0) {
+                                element.isActive = false;
+                            }
                         } else {
                             element.dropdownMenu.isOpen = true;
                             element.isActive = true;

@@ -57,15 +57,25 @@
                         </div>
                         <div class="menu-container">
                             <ul class="list-inline">
-                                <li v-for="(link, index) in navbarLinks" class="links" @click="manageDropdowns(index)">
+                                <li v-for="(link, index) in navbarLinks" class="links" @mouseEnter="manageDropdowns(index)">
                                     <a href="#" :class="(link.isActive) ? 'active-link' : 'inactive-link'">
                                         {{ link.name }}
                                         <i v-if="link.hasDropdown" class="fas fa-chevron-down"></i>
                                         <!-- da gestire la classe active -->
                                     </a>
-                                    <ul class="dropdown animate__animated animate__fadeIn" v-if="link.hasDropdown && link.dropdownMenu.isOpen">
-                                        <li v-for="item in link.dropdownMenu.dropdownLinks"><a href="">{{ item }}</a></li>
-                                    </ul>
+                                    <template v-if="link.dropdownMenu.classicMenu">
+                                        <ul class="dropdown animate__animated animate__fadeInLeft" v-if="link.hasDropdown && link.dropdownMenu.isOpen">
+                                            <li v-for="item in link.dropdownMenu.dropdownLinks"><a href="">{{ item }}</a></li>
+                                        </ul>
+                                    </template>
+                                    <!-- <template v-if="!link.dropdownMenu.classicMenu">
+                                        <ul class="categories animate__animated animate__fadeInLeft">
+                                            <li v-for="promo in link.dropdownMenu.dropdownLinks">
+                                                <h4></h4>
+                                                <img src="" alt="Promo poster">
+                                            </li>
+                                        </ul>
+                                    </template> -->
                                 </li>
                                 <li>
                                     <a href="#" class="btn">shop now!</a>

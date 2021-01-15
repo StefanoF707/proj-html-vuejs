@@ -74,6 +74,11 @@ i.fa-chevron-down {
   outline: 0;
 }
 
+:root {
+  --animate-duration: 0.4s;
+  --animate-delay: 0s;
+}
+
 .header-top {
   position: fixed;
   top: 0;

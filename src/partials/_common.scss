@@ -62,3 +62,8 @@ i.fa-chevron-down {
 :focus {
     outline: 0;
 }
+
+:root {
+  --animate-duration: 0.4s;
+  --animate-delay: 0s;
+}
