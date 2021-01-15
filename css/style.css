@@ -231,6 +231,41 @@ i.fa-chevron-down {
 .header-top .header-navbar-bottom .menu-container li.links .dropdown li a {
   padding: 20px 5px;
 }
+.header-top .header-navbar-bottom .menu-container li.links .categories {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  position: absolute;
+  top: 100%;
+  left: -50vw;
+  background: #fff;
+}
+.header-top .header-navbar-bottom .menu-container li.links .categories li {
+  min-width: 25%;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid #00000020;
+}
+.header-top .header-navbar-bottom .menu-container li.links .categories li:first-child::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #427ed5;
+}
+.header-top .header-navbar-bottom .menu-container li.links .categories li h4 {
+  margin: 20px 0 30px;
+}
+.header-top .header-navbar-bottom .menu-container li.links .categories li img {
+  transition: all 0.4s;
+}
+.header-top .header-navbar-bottom .menu-container li.links .categories li img:hover {
+  transform: scale(1.05);
+}
 .header-top .header-navbar-bottom .menu-container li {
   margin-right: 30px;
 }

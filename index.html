@@ -51,7 +51,7 @@
                         </div>
                     </nav>
 
-                    <nav class="header-navbar-bottom">
+                    <nav class="header-navbar-bottom" @mouseLeave="dropdownsCloser">
                         <div class="logo-container">
                             <img src="img/classic_shop_logo1x.png" alt="Logo AVADA" class="img100">
                         </div>
@@ -68,14 +68,16 @@
                                             <li v-for="item in link.dropdownMenu.dropdownLinks"><a href="">{{ item }}</a></li>
                                         </ul>
                                     </template>
-                                    <!-- <template v-if="!link.dropdownMenu.classicMenu">
-                                        <ul class="categories animate__animated animate__fadeInLeft">
+                                    <template v-if="!link.dropdownMenu.classicMenu">
+                                        <ul class="categories animate__animated animate__fadeInLeft" v-if="link.hasDropdown && link.dropdownMenu.isOpen">
                                             <li v-for="promo in link.dropdownMenu.dropdownLinks">
-                                                <h4></h4>
-                                                <img src="" alt="Promo poster">
+                                                <a href="#">
+                                                    <h4>{{ promo.title }}</h4>
+                                                    <img :src="'img/categories/' + promo.poster + 'promo.jpg'" alt="Promo poster" class="img100">
+                                                </a>
                                             </li>
                                         </ul>
-                                    </template> -->
+                                    </template>
                                 </li>
                                 <li>
                                     <a href="#" class="btn">shop now!</a>

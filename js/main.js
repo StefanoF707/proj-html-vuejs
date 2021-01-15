@@ -364,6 +364,14 @@ let app = new Vue (
                     }
                 });
             },
+            dropdownsCloser: function() {
+                this.navbarLinks.forEach((element) => {
+                    if (element.hasDropdown) {
+                        element.dropdownMenu.isOpen = false;
+                        element.isActive = false;
+                    }
+                })
+            },
 
             manageFeatured: function (i) {
                 this.indexFeatured = i;
