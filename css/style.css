@@ -74,6 +74,14 @@ i.fa-chevron-down {
   outline: 0;
 }
 
+.header-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 3;
+}
 .header-top .header-navbar-top {
   background: #fff;
   display: flex;
@@ -86,27 +94,39 @@ i.fa-chevron-down {
   border-bottom: 1px solid #00000020;
 }
 .header-top .header-navbar-top .socials li {
-  position: relative;
   margin-right: 20px;
+  position: relative;
+  transition: color 0.4s;
 }
 .header-top .header-navbar-top .socials li span {
   position: absolute;
-  top: 150%;
+  top: 140%;
   left: 50%;
   transform: translateX(-50%);
   font-size: 10px;
   padding: 4px;
-  background: #2a2f33;
+  background: black;
   color: #fff;
   border-radius: 5px;
-  opacity: 0;
-  transition: opacity 0.4s;
+  display: none;
 }
-.header-top .header-navbar-top .socials li:hover {
-  color: #58636b;
+.header-top .header-navbar-top .socials li span::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: black;
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  border-radius: 2px;
 }
 .header-top .header-navbar-top .socials li:hover span {
-  opacity: 1;
+  display: block;
+}
+.header-top .header-navbar-top .socials li:hover {
+  color: #8a969f;
 }
 .header-top .header-navbar-top .user-options {
   height: 100%;
@@ -156,6 +176,7 @@ i.fa-chevron-down {
   justify-content: space-between;
   height: 100px;
   padding: 0 90px;
+  box-shadow: 0px 5px 13px -7px #000000;
 }
 .header-top .header-navbar-bottom .logo-container {
   max-width: 200px;
@@ -237,39 +258,38 @@ i.fa-chevron-down {
   align-items: center;
   justify-content: center;
   height: 90vh;
-  background-image: url("../img/jumbotron.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  position: relative;
+  margin-top: 150px;
   color: #fff;
   text-align: center;
-  position: relative;
 }
-#jumbotron::after {
-  content: "";
+#jumbotron * {
+  z-index: 2;
+}
+#jumbotron img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #00000030;
-}
-#jumbotron * {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
   z-index: 1;
+  filter: brightness(0.8);
 }
-
-.jumbotron-top h1 {
+#jumbotron .jumbotron-top h1 {
   font-size: 5em;
 }
-.jumbotron-top p {
+#jumbotron .jumbotron-top p {
   font-size: 1.7em;
   text-transform: uppercase;
 }
-
-.jumbotron-bottom {
+#jumbotron .jumbotron-bottom {
   margin-top: 40px;
 }
-.jumbotron-bottom .btn {
+#jumbotron .jumbotron-bottom .btn {
   padding: 15px 30px;
   border-radius: 50px;
   color: #fff;
@@ -280,8 +300,28 @@ i.fa-chevron-down {
   transition: background 0.4s;
   margin: 0 10px;
 }
-.jumbotron-bottom .btn:hover {
+#jumbotron .jumbotron-bottom .btn:hover {
   background: #ffffff00;
+}
+#jumbotron .slider-left, #jumbotron .slider-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 15px;
+  padding: 20px 10px;
+  background: #00000040;
+  cursor: pointer;
+  transition: background-color 0.4s;
+}
+#jumbotron .slider-left:hover, #jumbotron .slider-right:hover {
+  background-color: #00000080;
+}
+#jumbotron .slider-left {
+  left: 0;
+}
+#jumbotron .slider-right {
+  right: 0;
 }
 
 #newsletter {
@@ -329,7 +369,7 @@ i.fa-chevron-down {
   align-items: center;
   align-items: flex-start;
   padding: 50px 90px;
-  background: #2B2E32;
+  background: #2a2f33;
   color: #a0a5a5;
   font-weight: 600;
   font-size: 14px;
@@ -350,9 +390,37 @@ i.fa-chevron-down {
   margin-top: 40px;
 }
 #about-us .company .socials .social {
+  position: relative;
   margin-right: 15px;
   font-size: 17px;
   transition: all 0.4s;
+}
+#about-us .company .socials .social span {
+  position: absolute;
+  top: 140%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  padding: 4px;
+  background: black;
+  color: #fff;
+  border-radius: 5px;
+  display: none;
+}
+#about-us .company .socials .social span::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: black;
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  border-radius: 2px;
+}
+#about-us .company .socials .social:hover span {
+  display: block;
 }
 #about-us .company .socials .social:hover {
   color: #fff;

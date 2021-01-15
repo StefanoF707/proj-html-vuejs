@@ -217,6 +217,27 @@ let app = new Vue (
                     dropdown: true,
                 },
             ],
+            jumbotrons: [
+                {
+                    path: "_0",
+                    title: "Brand new Arrivals",
+                    subtitle: "new collection from new york",
+                    btns: ["view all", "lookbook"],
+                },
+                {
+                    path: "_1",
+                    title: "Avada Classic Shop",
+                    subtitle: "show your products with style",
+                    btns: ["get avada now!"],
+                },
+                {
+                    path: "_2",
+                    title: "Lookbook 2015",
+                    subtitle: "show your products with style",
+                    btns: ["men", "women"],
+                },
+            ],
+            indexJumbotron: 0,
             filterGender: [],
             threeFeatured: [],
             threeOnSale: [],
@@ -240,8 +261,40 @@ let app = new Vue (
             indexFeatured: 0,
             indexTestimonials: 0,
             inputEmail: "",
+            jAutoPlay: "",
         },
         methods: {
+
+            // carosello jumbotron
+            jumbotronRight: function () {
+                if (this.indexJumbotron == this.jumbotrons.length - 1) {
+                    this.indexJumbotron = 0;
+                } else {
+                    this.indexJumbotron++;
+                }
+            },
+            jumbotronLeft: function () {
+                if (this.indexJumbotron == 0) {
+                    this.indexJumbotron = this.jumbotrons.length - 1;
+                } else {
+                    this.indexJumbotron--;
+                }
+            },
+            jumbotronPrev: function () {
+                clearInterval(this.jAutoPlay);
+                this.jumbotronLeft();
+            },
+            jumbotronNext: function () {
+                clearInterval(this.jAutoPlay);
+                this.jumbotronRight();
+            },
+            autoplayJumbotrons: function () {
+                this.jAutoPlay = setInterval( () => {
+                    this.jumbotronRight();
+                }, 5000 );
+            },
+            // /carosello jumbotron
+
             manageFeatured: function (i) {
                 this.indexFeatured = i;
                 this.getFeatured(this.indexFeatured);
@@ -295,6 +348,7 @@ let app = new Vue (
         mounted: function () {
             this.getFeatured(this.indexFeatured);
             this.filterArrays();
+            this.autoplayJumbotrons();
         }
     }
 );

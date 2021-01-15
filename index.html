@@ -27,7 +27,7 @@
                             <ul class="list-inline">
                                 <li v-for="social in company.socials">
                                     <a href="#"><i :class="social.iconClass"></i></a>
-                                    <span>{{ social.name }}</span>
+                                    <span class="animate__animated animate__fadeIn">{{ social.name }}</span>
                                 </li>
                             </ul>
                         </div>
@@ -80,14 +80,26 @@
 
                 <!-- jumbotron -->
                 <section id="jumbotron">
+
+                    <img :src="'img/jumbotrons/jumbotron' + jumbotrons[indexJumbotron].path + '.jpg'" alt="jumbotron">
+
+                    <span class="slider-left" @click="jumbotronPrev">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+
                     <div class="jumbotron-top">
-                        <h1>Brand new Arrivals</h1>
-                        <p>new collection from new york</p>
+                        <h1>{{ jumbotrons[indexJumbotron].title }}</h1>
+                        <p>{{ jumbotrons[indexJumbotron].subtitle }}</p>
                     </div>
                     <div class="jumbotron-bottom">
-                        <a href="#" class="btn">view all</a>
-                        <a href="#" class="btn">lookbook</a>
+                        <a v-for="btn in jumbotrons[indexJumbotron].btns" href="#" class="btn">{{ btn }}</a>
                     </div>
+
+
+                    <span class="slider-right" @click="jumbotronNext">
+                        <i class="fas fa-chevron-right"></i>
+                    </span>
+
                 </section>
                 <!-- /jumbotron -->
 
@@ -108,7 +120,7 @@
 
                     <div class="featured-bottom">
 
-                        <div v-for="feature in filterGender" class="featured-item">
+                        <div v-for="(feature, index) in filterGender" class="featured-item">
                             <div class="featured-item-preview">
                                 <img :src="'img/products/' + feature.preview + '-400x520.jpg'" :alt="feature.name" class="img100">
                                 <div class="card-layover">
@@ -458,6 +470,7 @@
                                         <a href="#">
                                             <i :class="social.iconClass"></i>
                                         </a>
+                                        <span class="animate__animated animate__fadeIn">{{ social.name }}</span>
                                     </li>
                                 </ul>
                             </li>

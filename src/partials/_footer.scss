@@ -34,7 +34,7 @@
     @include horizontalFlex;
     align-items: flex-start;
     padding: ($verticalPadding / 2) $horizontalPadding;
-    background: #2B2E32;
+    background: $mainColorDark;
     color: $footerColor;
     font-weight: $standardWeight + 100;
     font-size: 14px;
@@ -54,6 +54,7 @@
         .socials {
             margin-top: 40px;
             .social {
+                @include socialsPopup;
                 margin-right: 15px;
                 font-size: 17px;
                 transition: all $transitionsTime;
