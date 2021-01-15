@@ -57,12 +57,15 @@
                         </div>
                         <div class="menu-container">
                             <ul class="list-inline">
-                                <li v-for="(link, index) in navabarLinks" class="links" :class="(index == 0) ? 'active-link' : 'inactive-link'">
-                                    <a href="#">
+                                <li v-for="(link, index) in navbarLinks" class="links" @click="manageDropdowns(index)">
+                                    <a href="#" :class="(link.isActive) ? 'active-link' : 'inactive-link'">
                                         {{ link.name }}
-                                        <i v-if="link.dropdown" class="fas fa-chevron-down"></i>
+                                        <i v-if="link.hasDropdown" class="fas fa-chevron-down"></i>
                                         <!-- da gestire la classe active -->
                                     </a>
+                                    <ul class="dropdown animate__animated animate__fadeIn" v-if="link.hasDropdown && link.dropdownMenu.isOpen">
+                                        <li v-for="item in link.dropdownMenu.dropdownLinks"><a href="">{{ item }}</a></li>
+                                    </ul>
                                 </li>
                                 <li>
                                     <a href="#" class="btn">shop now!</a>
@@ -91,6 +94,7 @@
                         <h1>{{ jumbotrons[indexJumbotron].title }}</h1>
                         <p>{{ jumbotrons[indexJumbotron].subtitle }}</p>
                     </div>
+
                     <div class="jumbotron-bottom">
                         <a v-for="btn in jumbotrons[indexJumbotron].btns" href="#" class="btn">{{ btn }}</a>
                     </div>
@@ -120,7 +124,7 @@
 
                     <div class="featured-bottom">
 
-                        <div v-for="(feature, index) in filterGender" class="featured-item">
+                        <div v-for="(feature, index) in filterGender" class="featured-item animate__animated animate__fadeIn" v-if="filterGender.length != 0">
                             <div class="featured-item-preview">
                                 <img :src="'img/products/' + feature.preview + '-400x520.jpg'" :alt="feature.name" class="img100">
                                 <div class="card-layover">
@@ -147,6 +151,7 @@
                         </div>
 
                     </div>
+
                 </section>
 
                 <section id="collections">

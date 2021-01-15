@@ -72,27 +72,39 @@
             max-width: 200px;
         }
         .menu-container {
-            height: 100%;
             @include menuLists;
             li.links {
+                position: relative;
                 font-size: 12px;
                 line-height: $navbarBottomHeight;
                 margin-right: 30px;
-            }
-            li.inactive-link {
-                @include activeMenuProp;
-            }
-            li.active-link {
-                position: relative;
-                color: $brandColor;
-                &::before {
-                    content: "";
-                    width: 100%;
-                    height: 3px;
-                    background: $brandColor;
+                .dropdown {
+                    line-height: 0;
                     position: absolute;
-                    top: 0;
-                    left: 0;
+                    top: 100%;
+                    li {
+                        width: 200px;
+                        font-weight: $standardWeight;
+                        background: #fff;
+                        position: relative;
+                        transition: background $transitionsTime;
+                        &:first-child::before {
+                            content: "";
+                            display: inline-block;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 3px;
+                            background: $brandColor;
+                        }
+                        &:hover {
+                            background: darken(#ffffff, 10%);
+                        }
+                        a {
+                            padding: 20px 5px;
+                        }
+                    }
                 }
             }
             li {
@@ -104,6 +116,22 @@
                 }
                 .fa-search {
                     font-size: 14px;
+                }
+            }
+            .inactive-link {
+                @include activeMenuProp;
+            }
+            .active-link {
+                position: relative;
+                color: $brandColor;
+                &::before {
+                    content: "";
+                    width: 100%;
+                    height: 3px;
+                    background: $brandColor;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
                 }
             }
         }

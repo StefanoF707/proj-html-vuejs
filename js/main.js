@@ -191,30 +191,56 @@ let app = new Vue (
             brands: ["_1", "_2", "_3", "_4", "_5", "_6", "_7"],
             posts: ["Aenean lobortis sapien enim viverra", "Duis ac massa semper maximus", "Nunc fermint nulla eu justo sem id", "Aliquam posuere magna eget nibh", "Cras ac nulla ac consecte rutrum", "Fusce mattis nunc ut aliquam"],
             tags: ["Black", "boots", "Brown", "Casual", "D&G", "Fabric", "flowers", "Grey", "hat", "Hipster", "lines", "multi-purpose", "New York", "Outdoors", "red", "responsive", "summer", "sweater", "Travel", "Warm", "White", "winter"],
-            navabarLinks: [
+            navbarLinks: [
                 {
                     name: "Home",
-                    dropdown: true,
+                    hasDropdown: true,
+                    isActive: true,
+                    dropdownMenu: {
+                        dropdownLinks: ["Home 1", "Home 2", "Home 3"],
+                        isOpen: false,
+                    },
                 },
                 {
                     name: "Shop",
-                    dropdown: true,
+                    hasDropdown: true,
+                    isActive: false,
+                    dropdownMenu: {
+                        dropdownLinks: ["Shop Full Width", "Shop With Sidebar"],
+                        isOpen: false,
+                    },
                 },
                 {
                     name: "Products",
-                    dropdown: true,
+                    hasDropdown: true,
+                    isActive: false,
+                    dropdownMenu: {
+                        dropdownLinks: ["Simple product", "Variable product", "Grouped product", "External/Affiliate product", "Digital Download", "Classic Layout"],
+                        isOpen: false,
+                    },
                 },
                 {
                     name: "Categories",
-                    dropdown: true,
+                    hasDropdown: true,
+                    isActive: false,
+                    dropdownMenu: {
+                        dropdownLinks: [],
+                        isOpen: false,
+                    },
                 },
                 {
                     name: "News",
-                    dropdown: false,
+                    hasDropdown: false,
+                    isActive: false,
                 },
                 {
                     name: "Elements",
-                    dropdown: true,
+                    hasDropdown: true,
+                    isActive: false,
+                    dropdownMenu: {
+                        dropdownLinks: ["Simple product", "Variable product", "Grouped product", "External/Affiliate product", "Digital Download", "Classic Layout", "Shop Full Width", "Shop With Sidebar"],
+                        isOpen: false,
+                    },
                 },
             ],
             jumbotrons: [
@@ -237,7 +263,6 @@ let app = new Vue (
                     btns: ["men", "women"],
                 },
             ],
-            indexJumbotron: 0,
             filterGender: [],
             threeFeatured: [],
             threeOnSale: [],
@@ -258,6 +283,8 @@ let app = new Vue (
                     feedback: "Proin blandit metus vel magna dignissim varius. Morbi enim lorem, sollicitudin vitae ante nec, rutrum venenatis neque. In mi augue, iaculis nec dui ac, condimentum consequat velit. Ut et metus justo.",
                 },
             ],
+            indexJumbotron: 0,
+            animationsJumbotron: 0,
             indexFeatured: 0,
             indexTestimonials: 0,
             inputEmail: "",
@@ -295,6 +322,20 @@ let app = new Vue (
             },
             // /carosello jumbotron
 
+            manageDropdowns: function (i) {
+                this.navbarLinks.forEach((element, index) => {
+                    if (element.hasDropdown) {
+                        if (index != i) {
+                            element.dropdownMenu.isOpen = false;
+                            element.isActive = false;
+                        } else {
+                            element.dropdownMenu.isOpen = true;
+                            element.isActive = true;
+                        }
+                    }
+                });
+            },
+
             manageFeatured: function (i) {
                 this.indexFeatured = i;
                 this.getFeatured(this.indexFeatured);
@@ -305,6 +346,7 @@ let app = new Vue (
             },
 
             getFeatured: function(i) {
+                this.filterGender.length = 0;
                 this.filterGender = this.products.filter( (el) => {
                     return el.gender == i && el.isFeatured;
                 } );
@@ -345,7 +387,7 @@ let app = new Vue (
             },
 
         },
-        mounted: function () {
+        created: function () {
             this.getFeatured(this.indexFeatured);
             this.filterArrays();
             this.autoplayJumbotrons();
