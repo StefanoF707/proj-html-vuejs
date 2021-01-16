@@ -136,7 +136,7 @@
 
                     <div class="featured-bottom">
 
-                        <div v-for="(feature, index) in filterGender" class="featured-item animate__animated animate__fadeIn" v-if="filterGender.length != 0">
+                        <div v-for="(feature, index) in filterGender" class="featured-item">
                             <div class="featured-item-preview">
                                 <img :src="'img/products/' + feature.preview + '-400x520.jpg'" :alt="feature.name" class="img100">
                                 <div class="card-layover">
@@ -191,11 +191,11 @@
 
                     <div class="bestseller-container">
 
-                        <span class="slider-left">
+                        <span class="slider-left" @click="bsPrev">
                             <i class="fas fa-chevron-left"></i>
                         </span>
 
-                        <div v-for="bestseller in bestsellers.slice(0, 5)" class="bestseller-item">
+                        <div :style="'transform: translateX(' + bsCarousel + '%)'" v-for="bestseller in bestsellers" class="bestseller-item">
                             <img :src="'img/products/' + bestseller.preview + '-400x520.jpg'" :alt="bestseller.name" class="img100">
                             <div class="card-layover">
                                 <h4>{{ bestseller.name }}</h4>
@@ -219,7 +219,7 @@
                             </div>
                         </div>
 
-                        <span class="slider-right">
+                        <span class="slider-right" @click="bsNext">
                             <i class="fas fa-chevron-right"></i>
                         </span>
                     </div>
@@ -251,11 +251,11 @@
 
                     <div class="new-arrivals-container">
 
-                        <span class="slider-left">
+                        <span class="slider-left"@click="newPrev">
                             <i class="fas fa-chevron-left"></i>
                         </span>
 
-                        <div v-for="newArrival in newArrivals.slice(0, 5)" class="new-arrival-item">
+                        <div :style="'transform: translateX(' + newCarousel + '%)'" v-for="newArrival in newArrivals" class="new-arrival-item">
                             <img :src="'img/products/' + newArrival.preview + '-400x520.jpg'" :alt="newArrival.name" class="img100">
                             <div class="card-layover">
                                 <h4>{{ newArrival.name }}</h4>
@@ -279,7 +279,7 @@
                             </div>
                         </div>
 
-                        <span class="slider-right">
+                        <span class="slider-right" @click="newNext">
                             <i class="fas fa-chevron-right"></i>
                         </span>
                     </div>

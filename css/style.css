@@ -763,10 +763,10 @@ main {
   padding: 100px 90px;
 }
 #best-seller .bestseller-container {
-  display: flex;
-  align-items: center;
   margin-top: 30px;
   position: relative;
+  overflow-x: hidden;
+  white-space: nowrap;
 }
 #best-seller .bestseller-container .slider-left, #best-seller .bestseller-container .slider-right {
   position: absolute;
@@ -790,9 +790,11 @@ main {
   right: 0;
 }
 #best-seller .bestseller-container .bestseller-item {
+  display: inline-block;
   width: calc(100% / 5);
   position: relative;
   overflow: hidden;
+  transition: transform 0.8s;
 }
 #best-seller .bestseller-container .bestseller-item .card-layover {
   display: flex;
@@ -904,10 +906,10 @@ main {
   padding: 100px 0;
 }
 #new-arrivals .new-arrivals-container {
-  display: flex;
-  align-items: center;
   margin-top: 30px;
   position: relative;
+  overflow-x: hidden;
+  white-space: nowrap;
 }
 #new-arrivals .new-arrivals-container .slider-left, #new-arrivals .new-arrivals-container .slider-right {
   position: absolute;
@@ -931,9 +933,11 @@ main {
   right: 0;
 }
 #new-arrivals .new-arrivals-container .new-arrival-item {
+  display: inline-block;
   width: calc(100% / 5);
   position: relative;
   overflow: hidden;
+  transition: transform 0.8s;
 }
 #new-arrivals .new-arrivals-container .new-arrival-item .card-layover {
   display: flex;

@@ -311,7 +311,8 @@ let app = new Vue (
                 },
             ],
             indexJumbotron: 0,
-            animationsJumbotron: 0,
+            bsCarousel: 0,
+            newCarousel: 0,
             indexFeatured: 0,
             indexTestimonials: 0,
             inputEmail: "",
@@ -342,12 +343,12 @@ let app = new Vue (
                 clearInterval(this.jAutoPlay);
                 this.jumbotronRight();
             },
-            autoplayJumbotrons: function () {
+            // /carosello jumbotron
+            autoplays: function () {
                 this.jAutoPlay = setInterval( () => {
                     this.jumbotronRight();
                 }, 5000 );
             },
-            // /carosello jumbotron
 
             manageDropdowns: function (i) {
                 this.navbarLinks.forEach((element, index) => {
@@ -364,6 +365,7 @@ let app = new Vue (
                     }
                 });
             },
+
             dropdownsCloser: function() {
                 this.navbarLinks.forEach((element) => {
                     if (element.hasDropdown) {
@@ -421,13 +423,40 @@ let app = new Vue (
                     }
 
                 } );
+
             },
+
+            // carosello bestsellers
+            bsNext: function () {
+                if (this.bsCarousel > -100) {
+                    this.bsCarousel -= 100;
+                }
+            },
+            bsPrev: function () {
+                if (this.bsCarousel < 0) {
+                    this.bsCarousel += 100;
+                }
+            },
+            // /carosello bestsellers
+
+            // carosello nuovi arrivi
+            newNext: function () {
+                if (this.newCarousel > -100) {
+                    this.newCarousel -= 100;
+                }
+            },
+            newPrev: function () {
+                if (this.newCarousel < 0) {
+                    this.newCarousel += 100;
+                }
+            },
+            // /carosello nuovi arrivi
 
         },
         created: function () {
             this.getFeatured(this.indexFeatured);
             this.filterArrays();
-            this.autoplayJumbotrons();
+            this.autoplays();
         }
     }
 );

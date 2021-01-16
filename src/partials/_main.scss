@@ -119,9 +119,10 @@ main {
 #best-seller {
     padding: $verticalPadding $horizontalPadding;
     .bestseller-container {
-        @include horizontalFlex;
         margin-top: 30px;
         position: relative;
+        overflow-x: hidden;
+        white-space: nowrap;
         .slider-left, .slider-right {
             @include sliders;
         }
@@ -133,9 +134,11 @@ main {
             right: 0;
         }
         .bestseller-item {
+            display: inline-block;
             width: calc(100% / 5);
             position: relative;
             overflow: hidden;
+            transition: transform $transitionsTime * 2;
             .card-layover {
                 @include carouselCardsLayover;
             }
@@ -187,9 +190,10 @@ main {
 #new-arrivals {
     padding: $verticalPadding 0;
     .new-arrivals-container {
-        @include horizontalFlex;
         margin-top: 30px;
         position: relative;
+        overflow-x: hidden;
+        white-space: nowrap;
         .slider-left, .slider-right {
             @include sliders;
         }
@@ -201,9 +205,11 @@ main {
             right: 0;
         }
         .new-arrival-item {
+            display: inline-block;
             width: calc(100% / 5);
             position: relative;
             overflow: hidden;
+            transition: transform $transitionsTime * 2;
             .card-layover {
                 @include carouselCardsLayover;
             }
