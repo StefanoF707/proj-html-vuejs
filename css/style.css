@@ -207,11 +207,12 @@ i.fa-chevron-down {
   line-height: 0;
   position: absolute;
   top: 100%;
+  color: #2a2f33;
 }
 .header-top .header-navbar-bottom .menu-container li.links .dropdown li {
   width: 200px;
   font-weight: 500;
-  background: #fff;
+  background: #F6F6F6;
   position: relative;
   transition: background 0.4s;
 }
@@ -226,7 +227,7 @@ i.fa-chevron-down {
   background: #427ed5;
 }
 .header-top .header-navbar-bottom .menu-container li.links .dropdown li:hover {
-  background: #e6e6e6;
+  background: #dddddd;
 }
 .header-top .header-navbar-bottom .menu-container li.links .dropdown li a {
   padding: 20px 5px;
@@ -265,6 +266,18 @@ i.fa-chevron-down {
 }
 .header-top .header-navbar-bottom .menu-container li.links .categories li img:hover {
   transform: scale(1.05);
+}
+.header-top .header-navbar-bottom .menu-container li.links:first-child {
+  color: #427ed5;
+}
+.header-top .header-navbar-bottom .menu-container li.links:first-child::before {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background: #427ed5;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .header-top .header-navbar-bottom .menu-container li {
   margin-right: 30px;

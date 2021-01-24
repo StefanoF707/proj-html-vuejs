@@ -82,10 +82,11 @@
                     line-height: 0;
                     position: absolute;
                     top: 100%;
+                    color: $mainColorDark;
                     li {
                         width: 200px;
                         font-weight: $standardWeight;
-                        background: #fff;
+                        background: #F6F6F6;
                         position: relative;
                         transition: background $transitionsTime;
                         &:first-child::before {
@@ -99,7 +100,7 @@
                             background: $brandColor;
                         }
                         &:hover {
-                            background: darken(#ffffff, 10%);
+                            background: darken(#F6F6F6, 10%);
                         }
                         a {
                             padding: 20px 5px;
@@ -138,6 +139,18 @@
                                 transform: scale(1.05);
                             }
                         }
+                    }
+                }
+                &:first-child {
+                    color: $brandColor;
+                    &::before {
+                        content: "";
+                        width: 100%;
+                        height: 3px;
+                        background: $brandColor;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
                     }
                 }
             }
